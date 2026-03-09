@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="96" viewBox="0 0 360 96" role="img" aria-labelledby="title desc">
+  <title id="title">USC badge</title>
+  <desc id="desc">A simple institutional badge for the University of Southern California.</desc>
+  <rect width="360" height="96" rx="14" fill="#ffffff"/>
+  <rect x="10" y="10" width="76" height="76" rx="12" fill="#990000"/>
+  <text x="48" y="58" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700" fill="#ffcc00">USC</text>
+  <text x="108" y="42" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700" fill="#1a1a1a">University of Southern</text>
+  <text x="108" y="66" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700" fill="#990000">California</text>
+</svg>

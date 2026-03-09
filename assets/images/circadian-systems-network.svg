@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620" role="img" aria-labelledby="title desc">
+  <title id="title">Circadian systems network schematic</title>
+  <desc id="desc">A nonlinear circadian systems diagram showing a central molecular clock connected to multiple organs with phased outputs.</desc>
+  <rect width="900" height="620" fill="#f5f1e8"/>
+  <defs>
+    <linearGradient id="orbit" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f0c768"/>
+      <stop offset="48%" stop-color="#0f766e"/>
+      <stop offset="100%" stop-color="#355c7d"/>
+    </linearGradient>
+    <linearGradient id="flow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#d98d2b"/>
+      <stop offset="50%" stop-color="#0f766e"/>
+      <stop offset="100%" stop-color="#355c7d"/>
+    </linearGradient>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#172229" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+  <g filter="url(#softShadow)">
+    <rect x="278" y="106" width="344" height="344" rx="28" fill="#fffdf8"/>
+  </g>
+  <circle cx="450" cy="278" r="118" fill="none" stroke="url(#orbit)" stroke-width="22"/>
+  <circle cx="450" cy="278" r="68" fill="#fffdf8" stroke="#d6ece7" stroke-width="8"/>
+  <g stroke="#172229" stroke-linecap="round">
+    <line x1="450" y1="278" x2="450" y2="203" stroke-width="6"/>
+    <line x1="450" y1="278" x2="502" y2="304" stroke-width="6"/>
+  </g>
+  <circle cx="450" cy="278" r="12" fill="#0f766e"/>
+  <g fill="#172229" font-family="Arial Narrow, sans-serif" letter-spacing="2.2">
+    <text x="402" y="152" font-size="20">ZT0</text>
+    <text x="589" y="286" font-size="20">ZT6</text>
+    <text x="393" y="418" font-size="20">ZT12</text>
+    <text x="214" y="286" font-size="20">ZT18</text>
+    <text x="349" y="249" font-size="28">BMAL1</text>
+    <text x="363" y="286" font-size="28">CLOCK</text>
+    <text x="351" y="321" font-size="24" fill="#5f6e73">Core oscillator</text>
+  </g>
+  <path d="M156 415 C240 358 315 362 402 412" fill="none" stroke="url(#flow)" stroke-width="10" stroke-linecap="round"/>
+  <path d="M495 414 C584 349 664 346 751 392" fill="none" stroke="url(#flow)" stroke-width="10" stroke-linecap="round"/>
+  <path d="M237 184 C296 148 336 149 378 175" fill="none" stroke="#d98d2b" stroke-width="8" stroke-linecap="round"/>
+  <path d="M522 170 C579 134 630 136 688 181" fill="none" stroke="#355c7d" stroke-width="8" stroke-linecap="round"/>
+  <g fill="#fffdf8" stroke="#172229" stroke-width="3">
+    <circle cx="162" cy="420" r="56"/>
+    <circle cx="236" cy="178" r="50"/>
+    <circle cx="676" cy="180" r="54"/>
+    <circle cx="752" cy="394" r="58"/>
+  </g>
+  <g fill="#172229" font-family="Arial Narrow, sans-serif" letter-spacing="1.6">
+    <text x="133" y="414" font-size="24">Liver</text>
+    <text x="122" y="440" font-size="18" fill="#5f6e73">Metabolism</text>
+    <text x="207" y="173" font-size="24">Brain</text>
+    <text x="192" y="199" font-size="18" fill="#5f6e73">Phase control</text>
+    <text x="644" y="175" font-size="24">Heart</text>
+    <text x="627" y="201" font-size="18" fill="#5f6e73">Timing output</text>
+    <text x="721" y="388" font-size="24">Kidney</text>
+    <text x="693" y="414" font-size="18" fill="#5f6e73">Local programs</text>
+  </g>
+  <path d="M108 520 C182 472 246 548 329 506 C412 464 475 473 558 530 C623 575 714 558 803 501" fill="none" stroke="#0f766e" stroke-width="12" stroke-linecap="round"/>
+  <g fill="#172229" font-family="Palatino Linotype, Georgia, serif">
+    <text x="82" y="84" font-size="34">Nonlinear circadian systems</text>
+    <text x="82" y="118" font-size="34">across organs and pathways</text>
+    <text x="82" y="558" font-size="24" fill="#5f6e73">Coupled clocks, organ-specific outputs, and shifting phase relationships</text>
+  </g>
+</svg>

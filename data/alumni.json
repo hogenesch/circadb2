@@ -1,0 +1,199 @@
+{
+  "categories": [
+    {
+      "title": "Postdoctoral Fellows",
+      "entries": [
+        {
+          "name": "Ron Anafi",
+          "role": "Postdoctoral Fellow",
+          "lab_locations": ["Penn Medicine"],
+          "current_position": "Associate Professor of Medicine",
+          "current_institution": "Perelman School of Medicine, University of Pennsylvania",
+          "website": "https://www.med.upenn.edu/apps/faculty/index.php/g275/p8198976",
+          "scholar": "",
+          "linkedin": ""
+        },
+        {
+          "name": "Jason DeBruyne",
+          "role": "Postdoctoral Fellow",
+          "lab_locations": ["Penn Medicine"],
+          "current_position": "Professor and Program Director, PhD in Biomedical Sciences",
+          "current_institution": "Morehouse School of Medicine",
+          "website": "https://www.msm.edu/Education/PhDPrograminBiomedicalSciences/faculty/physiology/jason-debruyne.php",
+          "scholar": "",
+          "linkedin": ""
+        },
+        {
+          "name": "Michael E. Hughes",
+          "role": "Postdoctoral Fellow",
+          "lab_locations": ["Penn Medicine"],
+          "current_position": "In memoriam; formerly Assistant Professor of Medicine",
+          "current_institution": "Washington University in St. Louis School of Medicine",
+          "website": "https://medicine.wustl.edu/news/remembering-michael-hughes-phd/",
+          "scholar": "",
+          "linkedin": ""
+        },
+        {
+          "name": "Marc D. Ruben",
+          "role": "Postdoctoral Researcher",
+          "lab_locations": ["Cincinnati Children's Hospital"],
+          "current_position": "Assistant Professor",
+          "current_institution": "Cincinnati Children's Hospital Medical Center",
+          "website": "https://www.marcruben.net/",
+          "scholar": "",
+          "linkedin": ""
+        },
+        {
+          "name": "Satchin Panda",
+          "role": "Former lab member",
+          "lab_locations": ["Scripps Research (Florida)"],
+          "current_position": "Professor, Regulatory Biology Laboratory",
+          "current_institution": "Salk Institute for Biological Studies",
+          "website": "https://panda.salk.edu/people/",
+          "scholar": "",
+          "linkedin": ""
+        },
+        {
+          "name": "Sumit Chanda",
+          "role": "Former lab member",
+          "lab_locations": ["GNF / Novartis", "Scripps Research (Florida)"],
+          "current_position": "Professor, Department of Immunology and Microbiology",
+          "current_institution": "Scripps Research",
+          "website": "https://www.scripps.edu/faculty/chanda/",
+          "scholar": "",
+          "linkedin": ""
+        },
+        {
+          "name": "Yool Lee",
+          "role": "Former lab member",
+          "lab_locations": ["Penn Medicine"],
+          "current_position": "Assistant Professor, Department of Translational Medicine and Physiology",
+          "current_institution": "Washington State University Elson S. Floyd College of Medicine",
+          "website": "https://lee-lab.org/",
+          "scholar": "",
+          "linkedin": ""
+        }
+      ]
+    },
+    {
+      "title": "Graduate Students",
+      "entries": [
+        {
+          "name": "Andrew Su",
+          "role": "Graduate Student",
+          "lab_locations": ["Penn Medicine"],
+          "current_position": "Professor",
+          "current_institution": "Scripps Research",
+          "website": "https://www.scripps.edu/faculty/su/",
+          "scholar": "",
+          "linkedin": ""
+        },
+        {
+          "name": "Anthony Olarerin-George",
+          "role": "PhD Student",
+          "lab_locations": ["Penn Medicine"],
+          "current_position": "Assistant Professor",
+          "current_institution": "Rutgers New Jersey Medical School",
+          "website": "https://njms.rutgers.edu/sgs/prospective_students/info/faculty_research.php",
+          "scholar": "",
+          "linkedin": ""
+        },
+        {
+          "name": "Ray Zhang",
+          "role": "Graduate Student",
+          "lab_locations": ["Penn Medicine"],
+          "current_position": "Assistant Professor, Department of Pathology",
+          "current_institution": "UT Southwestern Medical Center",
+          "website": "https://profiles.utsouthwestern.edu/profile/208386/ray-zhang.html",
+          "scholar": "",
+          "linkedin": ""
+        }
+      ]
+    },
+    {
+      "title": "Research Scientists",
+      "entries": [
+        {
+          "name": "Julie Baggs",
+          "role": "Research Associate",
+          "lab_locations": ["GNF / Novartis", "Penn Medicine"],
+          "current_position": "Scientific Director",
+          "current_institution": "Omega Bio-tek",
+          "website": "https://omegabiotek.com/about-us/our-team/",
+          "scholar": "",
+          "linkedin": ""
+        },
+        {
+          "name": "Pedro Aza-Blanc",
+          "role": "Research Scientist",
+          "lab_locations": ["GNF / Novartis", "Scripps Research (Florida)"],
+          "current_position": "",
+          "current_institution": "",
+          "website": "",
+          "scholar": "",
+          "linkedin": ""
+        }
+      ]
+    },
+    {
+      "title": "Lab Managers and Technical Staff",
+      "entries": [
+        {
+          "name": "Jeanne Geskes",
+          "role": "Lab Manager",
+          "lab_locations": ["Scripps Research (Florida)", "Penn Medicine"],
+          "current_position": "",
+          "current_institution": "",
+          "website": "",
+          "scholar": "",
+          "linkedin": ""
+        },
+        {
+          "name": "Josephine Harada",
+          "role": "Technical Staff",
+          "lab_locations": ["Scripps Research (Florida)"],
+          "current_position": "",
+          "current_institution": "",
+          "website": "",
+          "scholar": "",
+          "linkedin": ""
+        },
+        {
+          "name": "Trey Sato",
+          "role": "Technical Staff",
+          "lab_locations": ["Scripps Research (Florida)"],
+          "current_position": "",
+          "current_institution": "",
+          "website": "",
+          "scholar": "",
+          "linkedin": ""
+        }
+      ]
+    },
+    {
+      "title": "Other Alumni",
+      "entries": [
+        {
+          "name": "Rochelle M. Witt",
+          "role": "Mentored Scientist",
+          "lab_locations": ["Cincinnati Children's Hospital"],
+          "current_position": "Assistant Professor, UC Department of Pediatrics; member, Division of Neurology",
+          "current_institution": "Cincinnati Children's Hospital Medical Center",
+          "website": "https://www.cincinnatichildrens.org/bio/w/rochelle-witt",
+          "scholar": "",
+          "linkedin": ""
+        },
+        {
+          "name": "David F. Smith",
+          "role": "Longtime Clinical Collaborator",
+          "lab_locations": ["Cincinnati Children's Hospital"],
+          "current_position": "Associate Professor, UC Department of Otolaryngology, Head and Neck Surgery",
+          "current_institution": "Cincinnati Children's Hospital Medical Center",
+          "website": "https://www.cincinnatichildrens.org/bio/s/david-smith",
+          "scholar": "",
+          "linkedin": ""
+        }
+      ]
+    }
+  ]
+}

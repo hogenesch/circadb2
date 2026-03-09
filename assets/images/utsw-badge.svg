@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="96" viewBox="0 0 360 96" role="img" aria-labelledby="title desc">
+  <title id="title">UT Southwestern badge</title>
+  <desc id="desc">A simple institutional badge for UT Southwestern Medical Center.</desc>
+  <rect width="360" height="96" rx="14" fill="#ffffff"/>
+  <rect x="10" y="10" width="76" height="76" rx="12" fill="#003a70"/>
+  <text x="48" y="48" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700" fill="#ffffff">UT</text>
+  <text x="48" y="69" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700" fill="#ffffff">SW</text>
+  <text x="108" y="42" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700" fill="#1a1a1a">UT Southwestern</text>
+  <text x="108" y="66" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700" fill="#003a70">Medical Center</text>
+</svg>
