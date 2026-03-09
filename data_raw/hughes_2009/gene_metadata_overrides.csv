@@ -1,0 +1,6 @@
+symbol,name,aliases,entrez_id,refseq_rna
+Arntl,Aryl hydrocarbon receptor nuclear translocator like,Bmal1;Mop3,11865,NM_007489
+Dbp,D-box binding PAR bZIP transcription factor,,13170,NM_016974
+Per2,Period circadian regulator 2,,18627,NM_011066
+Tef,Thyrotroph embryonic factor,,216848,NM_011281
+Nr1d1,Nuclear receptor subfamily 1 group D member 1,Rev-erb alpha,217166,NM_145434

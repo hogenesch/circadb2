@@ -1,0 +1,132 @@
+{
+  "id": "hughes-2009",
+  "slug": "hughes-2009",
+  "title": "Hughes et al. 2009 Mouse Liver 48h",
+  "citation": "Hughes ME, DiTacchio L, Hayes KR, Vollmers C, Pulivarthy S, Baggs JE, Panda S, Hogenesch JB. Harmonics of circadian gene transcription in mammals. PLoS Genetics. 2009;5(4):e1000442.",
+  "species": "Mus musculus",
+  "tissue": "Liver",
+  "platform": "Affymetrix Mouse Genome 430 2.0 Array (GPL1261)",
+  "sampling_interval_hours": 1,
+  "number_of_timepoints": 48,
+  "description": "Seed CircaDB 2.0 dataset built from the Hughes et al. 2009 mouse liver 48-hour microarray time-course (GSE11923). The proof of concept uses the same general Gene / Dataset / GeneDatasetProfile model that future datasets will plug into.",
+  "source_files": [
+    "data_raw/hughes_2009/hughes2009_liver48_jtk_gene_best_probe_ranked.csv",
+    "data_raw/hughes_2009/gse11923_expr_probe_x_sample.csv",
+    "data_raw/hughes_2009/gse11923_pheno_data.csv",
+    "data_raw/hughes_2009/gene_metadata_overrides.csv"
+  ],
+  "downloads": [
+    {
+      "label": "Best-probe rhythmic metrics (CSV)",
+      "href": "/public_data/downloads/hughes-2009/hughes2009_liver48_jtk_gene_best_probe_ranked.csv"
+    },
+    {
+      "label": "Expression matrix (CSV)",
+      "href": "/public_data/downloads/hughes-2009/gse11923_expr_probe_x_sample.csv"
+    },
+    {
+      "label": "Sample metadata (CSV)",
+      "href": "/public_data/downloads/hughes-2009/gse11923_pheno_data.csv"
+    },
+    {
+      "label": "Dataset record (JSON)",
+      "href": "/public_data/datasets/hughes-2009.json"
+    }
+  ],
+  "featured_genes": [
+    "PER2",
+    "ARNTL",
+    "DBP"
+  ],
+  "number_of_genes": 21722,
+  "supported_algorithms": [
+    "jtk_cycle",
+    "ejtk",
+    "lomb_scargle",
+    "arser",
+    "rain",
+    "metacycle"
+  ],
+  "loaded_algorithms": [
+    "jtk_cycle"
+  ],
+  "metadata": {
+    "paper_year": 2009,
+    "paper_journal": "PLoS Genetics",
+    "geo_accession": "GSE11923",
+    "dataset_scope": "Single proof-of-concept dataset loaded into a general CircaDB engine.",
+    "sample_ids": [
+      "GSM301348",
+      "GSM301349",
+      "GSM301350",
+      "GSM301351",
+      "GSM301352",
+      "GSM301353",
+      "GSM301354",
+      "GSM301355",
+      "GSM301356",
+      "GSM301357",
+      "GSM301358",
+      "GSM301359",
+      "GSM301360",
+      "GSM301361",
+      "GSM301362",
+      "GSM301363",
+      "GSM301364",
+      "GSM301365",
+      "GSM301366",
+      "GSM301367",
+      "GSM301368",
+      "GSM301369",
+      "GSM301370",
+      "GSM301371",
+      "GSM301372",
+      "GSM301373",
+      "GSM301374",
+      "GSM301375",
+      "GSM301376",
+      "GSM301377",
+      "GSM301378",
+      "GSM301379",
+      "GSM301380",
+      "GSM301381",
+      "GSM301382",
+      "GSM301383",
+      "GSM301384",
+      "GSM301385",
+      "GSM301386",
+      "GSM301387",
+      "GSM301388",
+      "GSM301389",
+      "GSM301390",
+      "GSM301391",
+      "GSM301392",
+      "GSM301393",
+      "GSM301394",
+      "GSM301395"
+    ],
+    "time_axis_label": "Circadian time (CT, hours)",
+    "time_axis_kind": "circadian_time",
+    "cycle_length_hours": 24.0
+  },
+  "example_genes": [
+    {
+      "symbol": "Arntl",
+      "name": "Aryl hydrocarbon receptor nuclear translocator like",
+      "profile_path": "/public_data/profiles/hughes-2009/ARNTL.json",
+      "gene_path": "/gene/ARNTL?dataset=hughes-2009"
+    },
+    {
+      "symbol": "Dbp",
+      "name": "D-box binding PAR bZIP transcription factor",
+      "profile_path": "/public_data/profiles/hughes-2009/DBP.json",
+      "gene_path": "/gene/DBP?dataset=hughes-2009"
+    },
+    {
+      "symbol": "Per2",
+      "name": "Period circadian regulator 2",
+      "profile_path": "/public_data/profiles/hughes-2009/PER2.json",
+      "gene_path": "/gene/PER2?dataset=hughes-2009"
+    }
+  ]
+}

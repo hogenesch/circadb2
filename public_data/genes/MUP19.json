@@ -1,0 +1,29 @@
+{
+  "id": "mmu:mup19",
+  "symbol": "Mup19",
+  "name": "Mup19",
+  "aliases": [
+    "Gm2083",
+    "Mup1",
+    "Mup10",
+    "Mup12",
+    "Mup13",
+    "Mup14",
+    "Mup15",
+    "Mup16",
+    "Mup2",
+    "Mup7",
+    "Mup8",
+    "Mup9"
+  ],
+  "species": "Mus musculus",
+  "external_ids": {},
+  "available_datasets": [
+    {
+      "id": "hughes-2009",
+      "slug": "hughes-2009",
+      "title": "Hughes et al. 2009 Mouse Liver 48h",
+      "profile_path": "/public_data/profiles/hughes-2009/MUP19.json"
+    }
+  ]
+}

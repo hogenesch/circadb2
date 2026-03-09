@@ -1,0 +1,20 @@
+{
+  "id": "mmu:gm6460",
+  "symbol": "Gm6460",
+  "name": "Gm6460",
+  "aliases": [
+    "4933402N22Rik",
+    "Gm5861",
+    "Speer1"
+  ],
+  "species": "Mus musculus",
+  "external_ids": {},
+  "available_datasets": [
+    {
+      "id": "hughes-2009",
+      "slug": "hughes-2009",
+      "title": "Hughes et al. 2009 Mouse Liver 48h",
+      "profile_path": "/public_data/profiles/hughes-2009/GM6460.json"
+    }
+  ]
+}

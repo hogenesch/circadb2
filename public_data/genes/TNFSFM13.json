@@ -1,0 +1,19 @@
+{
+  "id": "mmu:tnfsfm13",
+  "symbol": "Tnfsfm13",
+  "name": "Tnfsfm13",
+  "aliases": [
+    "Tnfsf12",
+    "Tnfsf13"
+  ],
+  "species": "Mus musculus",
+  "external_ids": {},
+  "available_datasets": [
+    {
+      "id": "hughes-2009",
+      "slug": "hughes-2009",
+      "title": "Hughes et al. 2009 Mouse Liver 48h",
+      "profile_path": "/public_data/profiles/hughes-2009/TNFSFM13.json"
+    }
+  ]
+}

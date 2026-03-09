@@ -1,0 +1,19 @@
+{
+  "id": "mmu:gm11937",
+  "symbol": "Gm11937",
+  "name": "Gm11937",
+  "aliases": [
+    "Gm11938",
+    "Krtap2-4"
+  ],
+  "species": "Mus musculus",
+  "external_ids": {},
+  "available_datasets": [
+    {
+      "id": "hughes-2009",
+      "slug": "hughes-2009",
+      "title": "Hughes et al. 2009 Mouse Liver 48h",
+      "profile_path": "/public_data/profiles/hughes-2009/GM11937.json"
+    }
+  ]
+}

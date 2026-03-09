@@ -1,0 +1,21 @@
+{
+  "id": "mmu:loc101056140",
+  "symbol": "LOC101056140",
+  "name": "LOC101056140",
+  "aliases": [
+    "Gm10362",
+    "Rpl17",
+    "Rpl17-ps10",
+    "Rpl17-ps9"
+  ],
+  "species": "Mus musculus",
+  "external_ids": {},
+  "available_datasets": [
+    {
+      "id": "hughes-2009",
+      "slug": "hughes-2009",
+      "title": "Hughes et al. 2009 Mouse Liver 48h",
+      "profile_path": "/public_data/profiles/hughes-2009/LOC101056140.json"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "id": "mmu:tubb2a-ps2",
+  "symbol": "Tubb2a-ps2",
+  "name": "Tubb2a-ps2",
+  "aliases": [
+    "Tubb2b"
+  ],
+  "species": "Mus musculus",
+  "external_ids": {},
+  "available_datasets": [
+    {
+      "id": "hughes-2009",
+      "slug": "hughes-2009",
+      "title": "Hughes et al. 2009 Mouse Liver 48h",
+      "profile_path": "/public_data/profiles/hughes-2009/TUBB2A-PS2.json"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "id": "mmu:gm14548",
+  "symbol": "Gm14548",
+  "name": "Gm14548",
+  "aliases": [
+    "Gm10693",
+    "Lilra6",
+    "Pira1",
+    "Pira11",
+    "Pira2",
+    "Pira4",
+    "Pira5",
+    "Pira6",
+    "Pira7",
+    "Pirb"
+  ],
+  "species": "Mus musculus",
+  "external_ids": {},
+  "available_datasets": [
+    {
+      "id": "hughes-2009",
+      "slug": "hughes-2009",
+      "title": "Hughes et al. 2009 Mouse Liver 48h",
+      "profile_path": "/public_data/profiles/hughes-2009/GM14548.json"
+    }
+  ]
+}

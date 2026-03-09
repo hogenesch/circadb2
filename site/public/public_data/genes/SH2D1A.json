@@ -1,0 +1,16 @@
+{
+  "id": "mmu:sh2d1a",
+  "symbol": "Sh2d1a",
+  "name": "Sh2d1a",
+  "aliases": [],
+  "species": "Mus musculus",
+  "external_ids": {},
+  "available_datasets": [
+    {
+      "id": "hughes-2009",
+      "slug": "hughes-2009",
+      "title": "Hughes et al. 2009 Mouse Liver 48h",
+      "profile_path": "/public_data/profiles/hughes-2009/SH2D1A.json"
+    }
+  ]
+}

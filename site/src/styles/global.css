@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-mist text-ink font-sans antialiased;
+  background-image:
+    radial-gradient(circle at top right, rgba(15, 118, 110, 0.14), transparent 28rem),
+    radial-gradient(circle at bottom left, rgba(245, 158, 11, 0.12), transparent 20rem);
+}
+
+a {
+  @apply transition-colors;
+}
+
+::selection {
+  background: rgba(15, 118, 110, 0.2);
+}
+
+.panel {
+  @apply rounded-3xl border border-white/70 bg-white/90 shadow-panel backdrop-blur;
+}
+
+.eyebrow {
+  @apply text-xs font-semibold uppercase tracking-[0.24em] text-sea;
+}
+
+.metric-value {
+  @apply text-2xl font-semibold text-ink;
+}

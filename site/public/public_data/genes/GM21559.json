@@ -1,0 +1,19 @@
+{
+  "id": "mmu:gm21559",
+  "symbol": "Gm21559",
+  "name": "Gm21559",
+  "aliases": [
+    "Gm5161",
+    "Snrpa"
+  ],
+  "species": "Mus musculus",
+  "external_ids": {},
+  "available_datasets": [
+    {
+      "id": "hughes-2009",
+      "slug": "hughes-2009",
+      "title": "Hughes et al. 2009 Mouse Liver 48h",
+      "profile_path": "/public_data/profiles/hughes-2009/GM21559.json"
+    }
+  ]
+}

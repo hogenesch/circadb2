@@ -1,0 +1,18 @@
+{
+  "id": "mmu:e130112n10rik",
+  "symbol": "E130112N10Rik",
+  "name": "E130112N10Rik",
+  "aliases": [
+    "Vamp1"
+  ],
+  "species": "Mus musculus",
+  "external_ids": {},
+  "available_datasets": [
+    {
+      "id": "hughes-2009",
+      "slug": "hughes-2009",
+      "title": "Hughes et al. 2009 Mouse Liver 48h",
+      "profile_path": "/public_data/profiles/hughes-2009/E130112N10RIK.json"
+    }
+  ]
+}

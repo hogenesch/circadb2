@@ -1,0 +1,18 @@
+{
+  "id": "mmu:cisd3b",
+  "symbol": "Cisd3b",
+  "name": "Cisd3b",
+  "aliases": [
+    "Cisd3"
+  ],
+  "species": "Mus musculus",
+  "external_ids": {},
+  "available_datasets": [
+    {
+      "id": "hughes-2009",
+      "slug": "hughes-2009",
+      "title": "Hughes et al. 2009 Mouse Liver 48h",
+      "profile_path": "/public_data/profiles/hughes-2009/CISD3B.json"
+    }
+  ]
+}

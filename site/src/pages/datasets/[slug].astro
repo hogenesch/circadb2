@@ -1,0 +1,117 @@
+---
+import MainLayout from "@layouts/MainLayout.astro";
+import { getDataset, getDatasetsIndex } from "@lib/data";
+
+export async function getStaticPaths() {
+  const datasets = await getDatasetsIndex();
+  return datasets.map((dataset) => ({
+    params: { slug: dataset.slug },
+  }));
+}
+
+const { slug } = Astro.params;
+if (!slug) {
+  throw new Error("Dataset slug is required.");
+}
+
+const dataset = await getDataset(slug);
+---
+
+<MainLayout title={`${dataset.title} | CircaDB 2.0`}>
+  <section class="grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
+    <article class="panel px-6 py-8">
+      <div class="eyebrow">Dataset</div>
+      <h1 class="mt-3 text-4xl font-semibold tracking-tight text-ink">{dataset.title}</h1>
+      <p class="mt-5 text-base leading-7 text-slate-700">{dataset.description}</p>
+
+      <div class="mt-8 grid gap-4 sm:grid-cols-2">
+        <div class="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-4">
+          <div class="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">Citation</div>
+          <p class="mt-2 text-sm leading-6 text-ink">{dataset.citation}</p>
+        </div>
+        <div class="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-4">
+          <div class="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">Downloads</div>
+          <ul class="mt-2 space-y-2 text-sm">
+            {dataset.downloads.map((download) => (
+              <li>
+                <a class="text-sea hover:text-ink" href={`${import.meta.env.BASE_URL}${download.href.replace(/^\//, "")}`}>
+                  {download.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </article>
+
+    <aside class="panel px-6 py-8">
+      <div class="eyebrow">Metadata</div>
+      <dl class="mt-4 space-y-4 text-sm">
+        <div>
+          <dt class="font-semibold text-slate-500">Species</dt>
+          <dd class="mt-1 text-ink">{dataset.species}</dd>
+        </div>
+        <div>
+          <dt class="font-semibold text-slate-500">Tissue</dt>
+          <dd class="mt-1 text-ink">{dataset.tissue}</dd>
+        </div>
+        <div>
+          <dt class="font-semibold text-slate-500">Platform</dt>
+          <dd class="mt-1 text-ink">{dataset.platform}</dd>
+        </div>
+        <div>
+          <dt class="font-semibold text-slate-500">Sampling interval</dt>
+          <dd class="mt-1 text-ink">{dataset.sampling_interval_hours} hours</dd>
+        </div>
+        <div>
+          <dt class="font-semibold text-slate-500">Timepoints</dt>
+          <dd class="mt-1 text-ink">{dataset.number_of_timepoints}</dd>
+        </div>
+        <div>
+          <dt class="font-semibold text-slate-500">Genes</dt>
+          <dd class="mt-1 text-ink">{dataset.number_of_genes.toLocaleString()}</dd>
+        </div>
+      </dl>
+    </aside>
+  </section>
+
+  <section class="mt-8 panel px-6 py-8">
+    <div class="eyebrow">Example genes</div>
+    <h2 class="mt-3 text-2xl font-semibold tracking-tight text-ink">Representative gene profiles</h2>
+    <div class="mt-6 overflow-x-auto">
+      <table class="min-w-full border-separate border-spacing-y-2 text-left text-sm">
+        <thead>
+          <tr class="text-slate-500">
+            <th class="px-4 py-2 font-semibold">Symbol</th>
+            <th class="px-4 py-2 font-semibold">Name</th>
+            <th class="px-4 py-2 font-semibold">Links</th>
+          </tr>
+        </thead>
+        <tbody>
+          {dataset.example_genes.map((gene) => (
+            <tr class="rounded-2xl bg-slate-50">
+              <td class="px-4 py-3 font-semibold text-ink">{gene.symbol}</td>
+              <td class="px-4 py-3 text-slate-700">{gene.name}</td>
+              <td class="px-4 py-3">
+                <div class="flex flex-wrap gap-3">
+                  <a
+                    class="text-sea hover:text-ink"
+                    href={`${import.meta.env.BASE_URL}${gene.gene_path.replace(/^\//, "")}`}
+                  >
+                    Gene page
+                  </a>
+                  <a
+                    class="text-sea hover:text-ink"
+                    href={`${import.meta.env.BASE_URL}${gene.profile_path.replace(/^\//, "")}`}
+                  >
+                    Profile JSON
+                  </a>
+                </div>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </section>
+</MainLayout>

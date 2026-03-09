@@ -1,0 +1,18 @@
+{
+  "id": "mmu:gm8430",
+  "symbol": "Gm8430",
+  "name": "Gm8430",
+  "aliases": [
+    "Rps27a"
+  ],
+  "species": "Mus musculus",
+  "external_ids": {},
+  "available_datasets": [
+    {
+      "id": "hughes-2009",
+      "slug": "hughes-2009",
+      "title": "Hughes et al. 2009 Mouse Liver 48h",
+      "profile_path": "/public_data/profiles/hughes-2009/GM8430.json"
+    }
+  ]
+}

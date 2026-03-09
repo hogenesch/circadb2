@@ -1,0 +1,16 @@
+{
+  "id": "mmu:gfpt1",
+  "symbol": "Gfpt1",
+  "name": "Gfpt1",
+  "aliases": [],
+  "species": "Mus musculus",
+  "external_ids": {},
+  "available_datasets": [
+    {
+      "id": "hughes-2009",
+      "slug": "hughes-2009",
+      "title": "Hughes et al. 2009 Mouse Liver 48h",
+      "profile_path": "/public_data/profiles/hughes-2009/GFPT1.json"
+    }
+  ]
+}

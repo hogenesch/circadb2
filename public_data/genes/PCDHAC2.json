@@ -1,0 +1,25 @@
+{
+  "id": "mmu:pcdhac2",
+  "symbol": "Pcdhac2",
+  "name": "Pcdhac2",
+  "aliases": [
+    "Pcdha1",
+    "Pcdha10",
+    "Pcdha11",
+    "Pcdha12",
+    "Pcdha2",
+    "Pcdha4",
+    "Pcdha9",
+    "Pcdhac1"
+  ],
+  "species": "Mus musculus",
+  "external_ids": {},
+  "available_datasets": [
+    {
+      "id": "hughes-2009",
+      "slug": "hughes-2009",
+      "title": "Hughes et al. 2009 Mouse Liver 48h",
+      "profile_path": "/public_data/profiles/hughes-2009/PCDHAC2.json"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "id": "mmu:loc665506",
+  "symbol": "LOC665506",
+  "name": "LOC665506",
+  "aliases": [
+    "Tcrb-J",
+    "Trbv1"
+  ],
+  "species": "Mus musculus",
+  "external_ids": {},
+  "available_datasets": [
+    {
+      "id": "hughes-2009",
+      "slug": "hughes-2009",
+      "title": "Hughes et al. 2009 Mouse Liver 48h",
+      "profile_path": "/public_data/profiles/hughes-2009/LOC665506.json"
+    }
+  ]
+}

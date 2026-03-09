@@ -1,0 +1,19 @@
+{
+  "id": "mmu:tef",
+  "symbol": "Tef",
+  "name": "Thyrotroph embryonic factor",
+  "aliases": [],
+  "species": "Mus musculus",
+  "external_ids": {
+    "entrez_gene": "216848",
+    "refseq_rna": "NM_011281"
+  },
+  "available_datasets": [
+    {
+      "id": "hughes-2009",
+      "slug": "hughes-2009",
+      "title": "Hughes et al. 2009 Mouse Liver 48h",
+      "profile_path": "/public_data/profiles/hughes-2009/TEF.json"
+    }
+  ]
+}

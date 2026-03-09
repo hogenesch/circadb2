@@ -1,0 +1,39 @@
+---
+import MainLayout from "@layouts/MainLayout.astro";
+import { getDatasetsIndex } from "@lib/data";
+
+const datasets = await getDatasetsIndex();
+---
+
+<MainLayout title="Datasets | CircaDB 2.0">
+  <section class="mb-8">
+    <div class="eyebrow">Datasets</div>
+    <h1 class="mt-3 text-4xl font-semibold tracking-tight text-ink">Loaded datasets</h1>
+    <p class="mt-3 max-w-3xl text-base text-slate-700">
+      The engine is already modeled for many datasets. This proof of concept currently loads one:
+      Hughes et al. 2009 mouse liver.
+    </p>
+  </section>
+
+  <section class="grid gap-6">
+    {datasets.map((dataset) => (
+      <article class="panel px-6 py-6">
+        <div class="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
+          <div>
+            <div class="eyebrow">{dataset.species}</div>
+            <h2 class="mt-2 text-2xl font-semibold text-ink">{dataset.title}</h2>
+            <p class="mt-3 text-sm text-slate-600">
+              {dataset.tissue} · {dataset.platform}
+            </p>
+          </div>
+          <a
+            class="inline-flex rounded-full bg-ink px-5 py-3 text-sm font-semibold text-white hover:bg-sea"
+            href={`${import.meta.env.BASE_URL}datasets/${dataset.slug}`}
+          >
+            Open dataset
+          </a>
+        </div>
+      </article>
+    ))}
+  </section>
+</MainLayout>

@@ -1,0 +1,27 @@
+{
+  "id": "mmu:gm21571",
+  "symbol": "Gm21571",
+  "name": "Gm21571",
+  "aliases": [
+    "Rps12",
+    "Rps12-ps10",
+    "Rps12-ps11",
+    "Rps12-ps12",
+    "Rps12-ps13",
+    "Rps12-ps14",
+    "Rps12-ps15",
+    "Rps12-ps16",
+    "Rps12-ps18",
+    "Rps12-ps24"
+  ],
+  "species": "Mus musculus",
+  "external_ids": {},
+  "available_datasets": [
+    {
+      "id": "hughes-2009",
+      "slug": "hughes-2009",
+      "title": "Hughes et al. 2009 Mouse Liver 48h",
+      "profile_path": "/public_data/profiles/hughes-2009/GM21571.json"
+    }
+  ]
+}

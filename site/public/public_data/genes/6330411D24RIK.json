@@ -1,0 +1,16 @@
+{
+  "id": "mmu:6330411d24rik",
+  "symbol": "6330411D24Rik",
+  "name": "6330411D24Rik",
+  "aliases": [],
+  "species": "Mus musculus",
+  "external_ids": {},
+  "available_datasets": [
+    {
+      "id": "hughes-2009",
+      "slug": "hughes-2009",
+      "title": "Hughes et al. 2009 Mouse Liver 48h",
+      "profile_path": "/public_data/profiles/hughes-2009/6330411D24RIK.json"
+    }
+  ]
+}

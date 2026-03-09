@@ -1,0 +1,25 @@
+{
+  "id": "mmu:gm15085",
+  "symbol": "Gm15085",
+  "name": "Gm15085",
+  "aliases": [
+    "Gm10439",
+    "Gm15080",
+    "Gm15093",
+    "Gm15107",
+    "Gm15114",
+    "Gm15128",
+    "Luzp4",
+    "Ott"
+  ],
+  "species": "Mus musculus",
+  "external_ids": {},
+  "available_datasets": [
+    {
+      "id": "hughes-2009",
+      "slug": "hughes-2009",
+      "title": "Hughes et al. 2009 Mouse Liver 48h",
+      "profile_path": "/public_data/profiles/hughes-2009/GM15085.json"
+    }
+  ]
+}

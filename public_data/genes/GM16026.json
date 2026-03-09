@@ -1,0 +1,21 @@
+{
+  "id": "mmu:gm16026",
+  "symbol": "Gm16026",
+  "name": "Gm16026",
+  "aliases": [
+    "C130026I21Rik",
+    "LOC100041057",
+    "LOC546061",
+    "LOC677525"
+  ],
+  "species": "Mus musculus",
+  "external_ids": {},
+  "available_datasets": [
+    {
+      "id": "hughes-2009",
+      "slug": "hughes-2009",
+      "title": "Hughes et al. 2009 Mouse Liver 48h",
+      "profile_path": "/public_data/profiles/hughes-2009/GM16026.json"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "id": "mmu:gm7429",
+  "symbol": "Gm7429",
+  "name": "Gm7429",
+  "aliases": [
+    "Gm5481",
+    "Gm6109",
+    "Gm6570",
+    "Rpl30"
+  ],
+  "species": "Mus musculus",
+  "external_ids": {},
+  "available_datasets": [
+    {
+      "id": "hughes-2009",
+      "slug": "hughes-2009",
+      "title": "Hughes et al. 2009 Mouse Liver 48h",
+      "profile_path": "/public_data/profiles/hughes-2009/GM7429.json"
+    }
+  ]
+}

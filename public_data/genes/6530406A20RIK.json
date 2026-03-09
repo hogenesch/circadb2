@@ -1,0 +1,16 @@
+{
+  "id": "mmu:6530406a20rik",
+  "symbol": "6530406A20Rik",
+  "name": "6530406A20Rik",
+  "aliases": [],
+  "species": "Mus musculus",
+  "external_ids": {},
+  "available_datasets": [
+    {
+      "id": "hughes-2009",
+      "slug": "hughes-2009",
+      "title": "Hughes et al. 2009 Mouse Liver 48h",
+      "profile_path": "/public_data/profiles/hughes-2009/6530406A20RIK.json"
+    }
+  ]
+}

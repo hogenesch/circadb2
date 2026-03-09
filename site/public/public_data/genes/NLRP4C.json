@@ -1,0 +1,16 @@
+{
+  "id": "mmu:nlrp4c",
+  "symbol": "Nlrp4c",
+  "name": "Nlrp4c",
+  "aliases": [],
+  "species": "Mus musculus",
+  "external_ids": {},
+  "available_datasets": [
+    {
+      "id": "hughes-2009",
+      "slug": "hughes-2009",
+      "title": "Hughes et al. 2009 Mouse Liver 48h",
+      "profile_path": "/public_data/profiles/hughes-2009/NLRP4C.json"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "mmu:zfp747",
+  "symbol": "Zfp747",
+  "name": "Zfp747",
+  "aliases": [
+    "9130019O22Rik",
+    "E430018J23Rik",
+    "Zfp764"
+  ],
+  "species": "Mus musculus",
+  "external_ids": {},
+  "available_datasets": [
+    {
+      "id": "hughes-2009",
+      "slug": "hughes-2009",
+      "title": "Hughes et al. 2009 Mouse Liver 48h",
+      "profile_path": "/public_data/profiles/hughes-2009/ZFP747.json"
+    }
+  ]
+}

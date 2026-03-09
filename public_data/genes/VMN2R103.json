@@ -1,0 +1,20 @@
+{
+  "id": "mmu:vmn2r103",
+  "symbol": "Vmn2r103",
+  "name": "Vmn2r103",
+  "aliases": [
+    "Vmn2r96",
+    "Vmn2r97",
+    "Vmn2r98"
+  ],
+  "species": "Mus musculus",
+  "external_ids": {},
+  "available_datasets": [
+    {
+      "id": "hughes-2009",
+      "slug": "hughes-2009",
+      "title": "Hughes et al. 2009 Mouse Liver 48h",
+      "profile_path": "/public_data/profiles/hughes-2009/VMN2R103.json"
+    }
+  ]
+}

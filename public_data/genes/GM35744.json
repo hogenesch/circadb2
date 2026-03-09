@@ -1,0 +1,24 @@
+{
+  "id": "mmu:gm35744",
+  "symbol": "Gm35744",
+  "name": "Gm35744",
+  "aliases": [
+    "0610010B08Rik",
+    "Gm14308",
+    "Gm14326",
+    "Gm14391",
+    "Gm14430",
+    "Gm14434",
+    "Gm4724"
+  ],
+  "species": "Mus musculus",
+  "external_ids": {},
+  "available_datasets": [
+    {
+      "id": "hughes-2009",
+      "slug": "hughes-2009",
+      "title": "Hughes et al. 2009 Mouse Liver 48h",
+      "profile_path": "/public_data/profiles/hughes-2009/GM35744.json"
+    }
+  ]
+}

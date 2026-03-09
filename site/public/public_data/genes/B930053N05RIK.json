@@ -1,0 +1,16 @@
+{
+  "id": "mmu:b930053n05rik",
+  "symbol": "B930053N05Rik",
+  "name": "B930053N05Rik",
+  "aliases": [],
+  "species": "Mus musculus",
+  "external_ids": {},
+  "available_datasets": [
+    {
+      "id": "hughes-2009",
+      "slug": "hughes-2009",
+      "title": "Hughes et al. 2009 Mouse Liver 48h",
+      "profile_path": "/public_data/profiles/hughes-2009/B930053N05RIK.json"
+    }
+  ]
+}

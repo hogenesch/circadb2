@@ -1,0 +1,21 @@
+{
+  "id": "mmu:gm40469",
+  "symbol": "Gm40469",
+  "name": "Gm40469",
+  "aliases": [
+    "1810015C11Rik",
+    "2610005L07Rik",
+    "6820431F20Rik",
+    "D0Kist3"
+  ],
+  "species": "Mus musculus",
+  "external_ids": {},
+  "available_datasets": [
+    {
+      "id": "hughes-2009",
+      "slug": "hughes-2009",
+      "title": "Hughes et al. 2009 Mouse Liver 48h",
+      "profile_path": "/public_data/profiles/hughes-2009/GM40469.json"
+    }
+  ]
+}

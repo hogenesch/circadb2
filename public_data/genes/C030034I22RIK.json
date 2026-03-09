@@ -1,0 +1,16 @@
+{
+  "id": "mmu:c030034i22rik",
+  "symbol": "C030034I22Rik",
+  "name": "C030034I22Rik",
+  "aliases": [],
+  "species": "Mus musculus",
+  "external_ids": {},
+  "available_datasets": [
+    {
+      "id": "hughes-2009",
+      "slug": "hughes-2009",
+      "title": "Hughes et al. 2009 Mouse Liver 48h",
+      "profile_path": "/public_data/profiles/hughes-2009/C030034I22RIK.json"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "id": "mmu:hist1h2br",
+  "symbol": "Hist1h2br",
+  "name": "Hist1h2br",
+  "aliases": [
+    "Hist1h2bf",
+    "Hist1h2bj",
+    "Hist1h2bl",
+    "Hist1h2bn",
+    "Hist1h2bq"
+  ],
+  "species": "Mus musculus",
+  "external_ids": {},
+  "available_datasets": [
+    {
+      "id": "hughes-2009",
+      "slug": "hughes-2009",
+      "title": "Hughes et al. 2009 Mouse Liver 48h",
+      "profile_path": "/public_data/profiles/hughes-2009/HIST1H2BR.json"
+    }
+  ]
+}

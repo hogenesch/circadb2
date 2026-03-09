@@ -1,0 +1,16 @@
+{
+  "id": "mmu:gm11269",
+  "symbol": "Gm11269",
+  "name": "Gm11269",
+  "aliases": [],
+  "species": "Mus musculus",
+  "external_ids": {},
+  "available_datasets": [
+    {
+      "id": "hughes-2009",
+      "slug": "hughes-2009",
+      "title": "Hughes et al. 2009 Mouse Liver 48h",
+      "profile_path": "/public_data/profiles/hughes-2009/GM11269.json"
+    }
+  ]
+}

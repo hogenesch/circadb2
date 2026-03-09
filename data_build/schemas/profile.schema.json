@@ -1,0 +1,111 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CircaDB GeneDatasetProfile",
+  "type": "object",
+  "required": [
+    "gene_id",
+    "dataset_id",
+    "symbol",
+    "algorithms",
+    "timepoints",
+    "expression_values",
+    "fit_timepoints",
+    "fit_values",
+    "units",
+    "metadata"
+  ],
+  "properties": {
+    "gene_id": {
+      "type": "string"
+    },
+    "dataset_id": {
+      "type": "string"
+    },
+    "symbol": {
+      "type": "string"
+    },
+    "algorithms": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "available": {
+            "type": "boolean"
+          },
+          "phase": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "amplitude": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "period": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "power": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "p_value": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "q_value": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "rhythmic": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          }
+        }
+      }
+    },
+    "timepoints": {
+      "type": "array",
+      "items": {
+        "type": "number"
+      }
+    },
+    "expression_values": {
+      "type": "array",
+      "items": {
+        "type": "number"
+      }
+    },
+    "fit_timepoints": {
+      "type": "array",
+      "items": {
+        "type": "number"
+      }
+    },
+    "fit_values": {
+      "type": "array",
+      "items": {
+        "type": "number"
+      }
+    },
+    "units": {
+      "type": "string"
+    },
+    "metadata": {
+      "type": "object"
+    }
+  }
+}

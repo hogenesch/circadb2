@@ -1,0 +1,19 @@
+{
+  "id": "mmu:mrto4-ps1",
+  "symbol": "Mrto4-ps1",
+  "name": "Mrto4-ps1",
+  "aliases": [
+    "Mrto4",
+    "Mrto4-ps2"
+  ],
+  "species": "Mus musculus",
+  "external_ids": {},
+  "available_datasets": [
+    {
+      "id": "hughes-2009",
+      "slug": "hughes-2009",
+      "title": "Hughes et al. 2009 Mouse Liver 48h",
+      "profile_path": "/public_data/profiles/hughes-2009/MRTO4-PS1.json"
+    }
+  ]
+}

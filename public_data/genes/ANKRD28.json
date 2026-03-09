@@ -1,0 +1,18 @@
+{
+  "id": "mmu:ankrd28",
+  "symbol": "Ankrd28",
+  "name": "Ankrd28",
+  "aliases": [
+    "3110068a07rik"
+  ],
+  "species": "Mus musculus",
+  "external_ids": {},
+  "available_datasets": [
+    {
+      "id": "hughes-2009",
+      "slug": "hughes-2009",
+      "title": "Hughes et al. 2009 Mouse Liver 48h",
+      "profile_path": "/public_data/profiles/hughes-2009/ANKRD28.json"
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "id": "mmu:gm21681",
+  "symbol": "Gm21681",
+  "name": "Gm21681",
+  "aliases": [
+    "Gm10921",
+    "Gm10922",
+    "Gm14345",
+    "Gm14346",
+    "Gm14347",
+    "Gm14351",
+    "Gm14374",
+    "Gm21950",
+    "Gm21951",
+    "Gm2777",
+    "Gm2799",
+    "Gm2825",
+    "Gm2863",
+    "Gm2913",
+    "Gm2927",
+    "Gm3701",
+    "Gm3706",
+    "Gm3750",
+    "Gm3763",
+    "Gm5925",
+    "Gmcl1l"
+  ],
+  "species": "Mus musculus",
+  "external_ids": {},
+  "available_datasets": [
+    {
+      "id": "hughes-2009",
+      "slug": "hughes-2009",
+      "title": "Hughes et al. 2009 Mouse Liver 48h",
+      "profile_path": "/public_data/profiles/hughes-2009/GM21681.json"
+    }
+  ]
+}

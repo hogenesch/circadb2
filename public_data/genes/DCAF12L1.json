@@ -1,0 +1,16 @@
+{
+  "id": "mmu:dcaf12l1",
+  "symbol": "Dcaf12l1",
+  "name": "Dcaf12l1",
+  "aliases": [],
+  "species": "Mus musculus",
+  "external_ids": {},
+  "available_datasets": [
+    {
+      "id": "hughes-2009",
+      "slug": "hughes-2009",
+      "title": "Hughes et al. 2009 Mouse Liver 48h",
+      "profile_path": "/public_data/profiles/hughes-2009/DCAF12L1.json"
+    }
+  ]
+}

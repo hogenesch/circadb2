@@ -1,0 +1,19 @@
+{
+  "id": "mmu:dbp",
+  "symbol": "Dbp",
+  "name": "D-box binding PAR bZIP transcription factor",
+  "aliases": [],
+  "species": "Mus musculus",
+  "external_ids": {
+    "entrez_gene": "13170",
+    "refseq_rna": "NM_016974"
+  },
+  "available_datasets": [
+    {
+      "id": "hughes-2009",
+      "slug": "hughes-2009",
+      "title": "Hughes et al. 2009 Mouse Liver 48h",
+      "profile_path": "/public_data/profiles/hughes-2009/DBP.json"
+    }
+  ]
+}

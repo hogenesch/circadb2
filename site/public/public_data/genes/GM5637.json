@@ -1,0 +1,18 @@
+{
+  "id": "mmu:gm5637",
+  "symbol": "Gm5637",
+  "name": "Gm5637",
+  "aliases": [
+    "Arpc1b"
+  ],
+  "species": "Mus musculus",
+  "external_ids": {},
+  "available_datasets": [
+    {
+      "id": "hughes-2009",
+      "slug": "hughes-2009",
+      "title": "Hughes et al. 2009 Mouse Liver 48h",
+      "profile_path": "/public_data/profiles/hughes-2009/GM5637.json"
+    }
+  ]
+}

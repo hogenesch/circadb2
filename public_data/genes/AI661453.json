@@ -1,0 +1,16 @@
+{
+  "id": "mmu:ai661453",
+  "symbol": "AI661453",
+  "name": "AI661453",
+  "aliases": [],
+  "species": "Mus musculus",
+  "external_ids": {},
+  "available_datasets": [
+    {
+      "id": "hughes-2009",
+      "slug": "hughes-2009",
+      "title": "Hughes et al. 2009 Mouse Liver 48h",
+      "profile_path": "/public_data/profiles/hughes-2009/AI661453.json"
+    }
+  ]
+}

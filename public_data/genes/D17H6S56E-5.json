@@ -1,0 +1,16 @@
+{
+  "id": "mmu:d17h6s56e-5",
+  "symbol": "D17H6S56E-5",
+  "name": "D17H6S56E-5",
+  "aliases": [],
+  "species": "Mus musculus",
+  "external_ids": {},
+  "available_datasets": [
+    {
+      "id": "hughes-2009",
+      "slug": "hughes-2009",
+      "title": "Hughes et al. 2009 Mouse Liver 48h",
+      "profile_path": "/public_data/profiles/hughes-2009/D17H6S56E-5.json"
+    }
+  ]
+}

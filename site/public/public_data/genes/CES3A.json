@@ -1,0 +1,18 @@
+{
+  "id": "mmu:ces3a",
+  "symbol": "Ces3a",
+  "name": "Ces3a",
+  "aliases": [
+    "Ces3b"
+  ],
+  "species": "Mus musculus",
+  "external_ids": {},
+  "available_datasets": [
+    {
+      "id": "hughes-2009",
+      "slug": "hughes-2009",
+      "title": "Hughes et al. 2009 Mouse Liver 48h",
+      "profile_path": "/public_data/profiles/hughes-2009/CES3A.json"
+    }
+  ]
+}

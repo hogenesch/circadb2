@@ -1,0 +1,18 @@
+{
+  "id": "mmu:npm3-ps1",
+  "symbol": "Npm3-ps1",
+  "name": "Npm3-ps1",
+  "aliases": [
+    "Npm3"
+  ],
+  "species": "Mus musculus",
+  "external_ids": {},
+  "available_datasets": [
+    {
+      "id": "hughes-2009",
+      "slug": "hughes-2009",
+      "title": "Hughes et al. 2009 Mouse Liver 48h",
+      "profile_path": "/public_data/profiles/hughes-2009/NPM3-PS1.json"
+    }
+  ]
+}

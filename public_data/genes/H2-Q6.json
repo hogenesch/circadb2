@@ -1,0 +1,20 @@
+{
+  "id": "mmu:h2-q6",
+  "symbol": "H2-Q6",
+  "name": "H2-Q6",
+  "aliases": [
+    "H2-Q4",
+    "H2-Q8",
+    "LOC68395"
+  ],
+  "species": "Mus musculus",
+  "external_ids": {},
+  "available_datasets": [
+    {
+      "id": "hughes-2009",
+      "slug": "hughes-2009",
+      "title": "Hughes et al. 2009 Mouse Liver 48h",
+      "profile_path": "/public_data/profiles/hughes-2009/H2-Q6.json"
+    }
+  ]
+}

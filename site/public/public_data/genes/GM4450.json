@@ -1,0 +1,19 @@
+{
+  "id": "mmu:gm4450",
+  "symbol": "Gm4450",
+  "name": "Gm4450",
+  "aliases": [
+    "Gm10681",
+    "Hsd3b4"
+  ],
+  "species": "Mus musculus",
+  "external_ids": {},
+  "available_datasets": [
+    {
+      "id": "hughes-2009",
+      "slug": "hughes-2009",
+      "title": "Hughes et al. 2009 Mouse Liver 48h",
+      "profile_path": "/public_data/profiles/hughes-2009/GM4450.json"
+    }
+  ]
+}

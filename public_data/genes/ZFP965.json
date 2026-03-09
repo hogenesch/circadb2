@@ -1,0 +1,23 @@
+{
+  "id": "mmu:zfp965",
+  "symbol": "Zfp965",
+  "name": "Zfp965",
+  "aliases": [
+    "Gm14288",
+    "Gm14440",
+    "Zfp966",
+    "Zfp967",
+    "Zfp971",
+    "Zfp973"
+  ],
+  "species": "Mus musculus",
+  "external_ids": {},
+  "available_datasets": [
+    {
+      "id": "hughes-2009",
+      "slug": "hughes-2009",
+      "title": "Hughes et al. 2009 Mouse Liver 48h",
+      "profile_path": "/public_data/profiles/hughes-2009/ZFP965.json"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "id": "mmu:d19ertd132e",
+  "symbol": "D19Ertd132e",
+  "name": "D19Ertd132e",
+  "aliases": [],
+  "species": "Mus musculus",
+  "external_ids": {},
+  "available_datasets": [
+    {
+      "id": "hughes-2009",
+      "slug": "hughes-2009",
+      "title": "Hughes et al. 2009 Mouse Liver 48h",
+      "profile_path": "/public_data/profiles/hughes-2009/D19ERTD132E.json"
+    }
+  ]
+}

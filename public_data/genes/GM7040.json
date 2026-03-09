@@ -1,0 +1,21 @@
+{
+  "id": "mmu:gm7040",
+  "symbol": "Gm7040",
+  "name": "Gm7040",
+  "aliases": [
+    "Prl2c2",
+    "Prl2c3",
+    "Prl2c4",
+    "Prl2c5"
+  ],
+  "species": "Mus musculus",
+  "external_ids": {},
+  "available_datasets": [
+    {
+      "id": "hughes-2009",
+      "slug": "hughes-2009",
+      "title": "Hughes et al. 2009 Mouse Liver 48h",
+      "profile_path": "/public_data/profiles/hughes-2009/GM7040.json"
+    }
+  ]
+}

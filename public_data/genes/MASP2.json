@@ -1,0 +1,16 @@
+{
+  "id": "mmu:masp2",
+  "symbol": "Masp2",
+  "name": "Masp2",
+  "aliases": [],
+  "species": "Mus musculus",
+  "external_ids": {},
+  "available_datasets": [
+    {
+      "id": "hughes-2009",
+      "slug": "hughes-2009",
+      "title": "Hughes et al. 2009 Mouse Liver 48h",
+      "profile_path": "/public_data/profiles/hughes-2009/MASP2.json"
+    }
+  ]
+}

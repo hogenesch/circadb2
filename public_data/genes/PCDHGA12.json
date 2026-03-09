@@ -1,0 +1,38 @@
+{
+  "id": "mmu:pcdhga12",
+  "symbol": "Pcdhga12",
+  "name": "Pcdhga12",
+  "aliases": [
+    "Pcdhga1",
+    "Pcdhga10",
+    "Pcdhga11",
+    "Pcdhga2",
+    "Pcdhga3",
+    "Pcdhga4",
+    "Pcdhga5",
+    "Pcdhga6",
+    "Pcdhga7",
+    "Pcdhga8",
+    "Pcdhga9",
+    "Pcdhgb1",
+    "Pcdhgb2",
+    "Pcdhgb4",
+    "Pcdhgb5",
+    "Pcdhgb6",
+    "Pcdhgb7",
+    "Pcdhgb8",
+    "Pcdhgc3",
+    "Pcdhgc4",
+    "Pcdhgc5"
+  ],
+  "species": "Mus musculus",
+  "external_ids": {},
+  "available_datasets": [
+    {
+      "id": "hughes-2009",
+      "slug": "hughes-2009",
+      "title": "Hughes et al. 2009 Mouse Liver 48h",
+      "profile_path": "/public_data/profiles/hughes-2009/PCDHGA12.json"
+    }
+  ]
+}

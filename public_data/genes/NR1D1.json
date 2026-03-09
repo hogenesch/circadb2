@@ -1,0 +1,21 @@
+{
+  "id": "mmu:nr1d1",
+  "symbol": "Nr1d1",
+  "name": "Nuclear receptor subfamily 1 group D member 1",
+  "aliases": [
+    "Rev-erb alpha"
+  ],
+  "species": "Mus musculus",
+  "external_ids": {
+    "entrez_gene": "217166",
+    "refseq_rna": "NM_145434"
+  },
+  "available_datasets": [
+    {
+      "id": "hughes-2009",
+      "slug": "hughes-2009",
+      "title": "Hughes et al. 2009 Mouse Liver 48h",
+      "profile_path": "/public_data/profiles/hughes-2009/NR1D1.json"
+    }
+  ]
+}

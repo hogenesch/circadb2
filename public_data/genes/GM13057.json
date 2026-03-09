@@ -1,0 +1,19 @@
+{
+  "id": "mmu:gm13057",
+  "symbol": "Gm13057",
+  "name": "Gm13057",
+  "aliases": [
+    "Gm13040",
+    "Gm13043"
+  ],
+  "species": "Mus musculus",
+  "external_ids": {},
+  "available_datasets": [
+    {
+      "id": "hughes-2009",
+      "slug": "hughes-2009",
+      "title": "Hughes et al. 2009 Mouse Liver 48h",
+      "profile_path": "/public_data/profiles/hughes-2009/GM13057.json"
+    }
+  ]
+}

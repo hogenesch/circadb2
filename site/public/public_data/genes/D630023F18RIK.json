@@ -1,0 +1,18 @@
+{
+  "id": "mmu:d630023f18rik",
+  "symbol": "D630023F18Rik",
+  "name": "D630023F18Rik",
+  "aliases": [
+    "Cryga"
+  ],
+  "species": "Mus musculus",
+  "external_ids": {},
+  "available_datasets": [
+    {
+      "id": "hughes-2009",
+      "slug": "hughes-2009",
+      "title": "Hughes et al. 2009 Mouse Liver 48h",
+      "profile_path": "/public_data/profiles/hughes-2009/D630023F18RIK.json"
+    }
+  ]
+}

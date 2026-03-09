@@ -1,0 +1,34 @@
+{
+  "id": "mmu:gm4297",
+  "symbol": "Gm4297",
+  "name": "Gm4297",
+  "aliases": [
+    "Gm10058",
+    "Gm10096",
+    "Gm10147",
+    "Gm10230",
+    "Gm10486",
+    "Gm10487",
+    "Gm10488",
+    "Gm14525",
+    "Gm14632",
+    "Gm14819",
+    "Gm2005",
+    "Gm2012",
+    "Gm2030",
+    "Gm4836",
+    "Gm5169",
+    "Gm5934",
+    "Gm6121"
+  ],
+  "species": "Mus musculus",
+  "external_ids": {},
+  "available_datasets": [
+    {
+      "id": "hughes-2009",
+      "slug": "hughes-2009",
+      "title": "Hughes et al. 2009 Mouse Liver 48h",
+      "profile_path": "/public_data/profiles/hughes-2009/GM4297.json"
+    }
+  ]
+}

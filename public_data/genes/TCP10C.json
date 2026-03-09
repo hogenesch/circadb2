@@ -1,0 +1,19 @@
+{
+  "id": "mmu:tcp10c",
+  "symbol": "Tcp10c",
+  "name": "Tcp10c",
+  "aliases": [
+    "Tcp10a",
+    "Tcp10b"
+  ],
+  "species": "Mus musculus",
+  "external_ids": {},
+  "available_datasets": [
+    {
+      "id": "hughes-2009",
+      "slug": "hughes-2009",
+      "title": "Hughes et al. 2009 Mouse Liver 48h",
+      "profile_path": "/public_data/profiles/hughes-2009/TCP10C.json"
+    }
+  ]
+}

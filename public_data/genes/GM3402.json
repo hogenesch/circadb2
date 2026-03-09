@@ -1,0 +1,20 @@
+{
+  "id": "mmu:gm3402",
+  "symbol": "Gm3402",
+  "name": "Gm3402",
+  "aliases": [
+    "4930449I24Rik",
+    "Gm6309",
+    "Gm6370"
+  ],
+  "species": "Mus musculus",
+  "external_ids": {},
+  "available_datasets": [
+    {
+      "id": "hughes-2009",
+      "slug": "hughes-2009",
+      "title": "Hughes et al. 2009 Mouse Liver 48h",
+      "profile_path": "/public_data/profiles/hughes-2009/GM3402.json"
+    }
+  ]
+}

@@ -1,0 +1,115 @@
+---
+import SearchBox from "@components/SearchBox.astro";
+import MainLayout from "@layouts/MainLayout.astro";
+import { getDataset, getDatasetsIndex } from "@lib/data";
+
+const datasets = await getDatasetsIndex();
+const primaryDataset = datasets[0];
+const dataset = primaryDataset ? await getDataset(primaryDataset.slug) : null;
+---
+
+<MainLayout title="CircaDB 2.0">
+  <section class="grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
+    <div class="panel px-6 py-8">
+      <div class="eyebrow">Proof of Concept</div>
+      <h1 class="mt-3 max-w-3xl text-4xl font-semibold tracking-tight text-ink sm:text-5xl">
+        General CircaDB engine, seeded with Hughes 2009 liver.
+      </h1>
+      <p class="mt-5 max-w-3xl text-base leading-7 text-slate-700">
+        This site is built around canonical genes, canonical datasets, and dataset-specific
+        rhythmic profiles. Hughes et al. 2009 is the first loaded dataset, not the product boundary.
+      </p>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a
+          class="rounded-full bg-sea px-5 py-3 text-sm font-semibold text-white hover:bg-ink"
+          href={`${import.meta.env.BASE_URL}datasets/hughes-2009`}
+        >
+          Explore the dataset
+        </a>
+        <a
+          class="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 hover:border-sea/40 hover:text-sea"
+          href={`${import.meta.env.BASE_URL}search`}
+        >
+          Find a gene
+        </a>
+        <a
+          class="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 hover:border-sea/40 hover:text-sea"
+          href={`${import.meta.env.BASE_URL}search#criteria-search`}
+        >
+          Search by criteria
+        </a>
+      </div>
+    </div>
+
+    {dataset && (
+      <aside class="panel px-6 py-8">
+        <div class="eyebrow">Loaded Dataset</div>
+        <h2 class="mt-3 text-2xl font-semibold text-ink">{dataset.title}</h2>
+        <dl class="mt-6 space-y-4 text-sm">
+          <div>
+            <dt class="font-semibold text-slate-500">Species</dt>
+            <dd class="mt-1 text-ink">{dataset.species}</dd>
+          </div>
+          <div>
+            <dt class="font-semibold text-slate-500">Tissue</dt>
+            <dd class="mt-1 text-ink">{dataset.tissue}</dd>
+          </div>
+          <div>
+            <dt class="font-semibold text-slate-500">Platform</dt>
+            <dd class="mt-1 text-ink">{dataset.platform}</dd>
+          </div>
+          <div>
+            <dt class="font-semibold text-slate-500">Genes</dt>
+            <dd class="mt-1 text-ink">{dataset.number_of_genes.toLocaleString()}</dd>
+          </div>
+        </dl>
+        <div class="mt-8">
+          <div class="eyebrow">Featured Genes</div>
+          <div class="mt-3 flex flex-wrap gap-2">
+            {dataset.featured_genes.map((gene) => (
+              <a
+                href={`${import.meta.env.BASE_URL}gene/${gene}?dataset=hughes-2009`}
+                class="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-medium text-ink hover:border-sea/40 hover:text-sea"
+              >
+                {gene}
+              </a>
+            ))}
+          </div>
+        </div>
+      </aside>
+    )}
+  </section>
+
+  <section class="mt-8 grid gap-6 lg:grid-cols-[1fr_0.95fr]">
+    <SearchBox
+      title="Find a gene"
+      description="Search by symbol, alias, or probe ID. Exact matches open directly; broader queries fall through to the full search page."
+    />
+
+    <article class="panel px-6 py-6">
+      <div class="eyebrow">Search Gene Sets</div>
+      <h2 class="mt-2 text-2xl font-semibold tracking-tight text-ink">
+        Search genes by rhythmicity criteria
+      </h2>
+      <p class="mt-3 text-sm leading-6 text-slate-600">
+        Run the core CircaDB workflow against a compact Hughes 2009 JTK index. Start from a
+        default threshold of <span class="font-mono">q &lt; 0.001</span>, then refine by phase
+        and rhythmic status.
+      </p>
+      <div class="mt-6 flex flex-wrap gap-3">
+        <a
+          class="rounded-full bg-ink px-5 py-3 text-sm font-semibold text-white hover:bg-sea"
+          href={`${import.meta.env.BASE_URL}search#criteria-search`}
+        >
+          Open criteria search
+        </a>
+        <a
+          class="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 hover:border-sea/40 hover:text-sea"
+          href={`${import.meta.env.BASE_URL}search?dataset=hughes-2009&algorithm=jtk_cycle&q=0.001&rhythmic=yes`}
+        >
+          Start with JTK q &lt; 0.001
+        </a>
+      </div>
+    </article>
+  </section>
+</MainLayout>

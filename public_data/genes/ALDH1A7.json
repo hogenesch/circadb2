@@ -1,0 +1,16 @@
+{
+  "id": "mmu:aldh1a7",
+  "symbol": "Aldh1a7",
+  "name": "Aldh1a7",
+  "aliases": [],
+  "species": "Mus musculus",
+  "external_ids": {},
+  "available_datasets": [
+    {
+      "id": "hughes-2009",
+      "slug": "hughes-2009",
+      "title": "Hughes et al. 2009 Mouse Liver 48h",
+      "profile_path": "/public_data/profiles/hughes-2009/ALDH1A7.json"
+    }
+  ]
+}

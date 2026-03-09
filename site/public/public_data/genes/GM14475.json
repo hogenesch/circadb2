@@ -1,0 +1,27 @@
+{
+  "id": "mmu:gm14475",
+  "symbol": "Gm14475",
+  "name": "Gm14475",
+  "aliases": [
+    "1700012L04Rik",
+    "Gm14474",
+    "Gm14476",
+    "Gm14477",
+    "Gm14478",
+    "Gm14479",
+    "Gm14482",
+    "Gm14483",
+    "Gm14484",
+    "Gm14501"
+  ],
+  "species": "Mus musculus",
+  "external_ids": {},
+  "available_datasets": [
+    {
+      "id": "hughes-2009",
+      "slug": "hughes-2009",
+      "title": "Hughes et al. 2009 Mouse Liver 48h",
+      "profile_path": "/public_data/profiles/hughes-2009/GM14475.json"
+    }
+  ]
+}

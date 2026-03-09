@@ -1,0 +1,16 @@
+{
+  "id": "mmu:zfyve26",
+  "symbol": "Zfyve26",
+  "name": "Zfyve26",
+  "aliases": [],
+  "species": "Mus musculus",
+  "external_ids": {},
+  "available_datasets": [
+    {
+      "id": "hughes-2009",
+      "slug": "hughes-2009",
+      "title": "Hughes et al. 2009 Mouse Liver 48h",
+      "profile_path": "/public_data/profiles/hughes-2009/ZFYVE26.json"
+    }
+  ]
+}

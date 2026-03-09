@@ -1,0 +1,21 @@
+{
+  "id": "mmu:loc100861969",
+  "symbol": "LOC100861969",
+  "name": "LOC100861969",
+  "aliases": [
+    "Gm13305",
+    "Gm2002",
+    "Il11ra1",
+    "Il11ra2"
+  ],
+  "species": "Mus musculus",
+  "external_ids": {},
+  "available_datasets": [
+    {
+      "id": "hughes-2009",
+      "slug": "hughes-2009",
+      "title": "Hughes et al. 2009 Mouse Liver 48h",
+      "profile_path": "/public_data/profiles/hughes-2009/LOC100861969.json"
+    }
+  ]
+}

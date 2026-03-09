@@ -1,0 +1,16 @@
+{
+  "id": "mmu:klk1b24",
+  "symbol": "Klk1b24",
+  "name": "Klk1b24",
+  "aliases": [],
+  "species": "Mus musculus",
+  "external_ids": {},
+  "available_datasets": [
+    {
+      "id": "hughes-2009",
+      "slug": "hughes-2009",
+      "title": "Hughes et al. 2009 Mouse Liver 48h",
+      "profile_path": "/public_data/profiles/hughes-2009/KLK1B24.json"
+    }
+  ]
+}

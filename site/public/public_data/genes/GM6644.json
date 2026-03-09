@@ -1,0 +1,18 @@
+{
+  "id": "mmu:gm6644",
+  "symbol": "Gm6644",
+  "name": "Gm6644",
+  "aliases": [
+    "Akr1b3"
+  ],
+  "species": "Mus musculus",
+  "external_ids": {},
+  "available_datasets": [
+    {
+      "id": "hughes-2009",
+      "slug": "hughes-2009",
+      "title": "Hughes et al. 2009 Mouse Liver 48h",
+      "profile_path": "/public_data/profiles/hughes-2009/GM6644.json"
+    }
+  ]
+}

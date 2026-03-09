@@ -1,0 +1,26 @@
+{
+  "id": "mmu:gm21104",
+  "symbol": "Gm21104",
+  "name": "Gm21104",
+  "aliases": [
+    "Ccl19",
+    "Gm12407",
+    "Gm13309",
+    "Gm2023",
+    "Gm2457",
+    "Gm2564",
+    "LOC100043918",
+    "LOC100043921",
+    "LOC100861618"
+  ],
+  "species": "Mus musculus",
+  "external_ids": {},
+  "available_datasets": [
+    {
+      "id": "hughes-2009",
+      "slug": "hughes-2009",
+      "title": "Hughes et al. 2009 Mouse Liver 48h",
+      "profile_path": "/public_data/profiles/hughes-2009/GM21104.json"
+    }
+  ]
+}

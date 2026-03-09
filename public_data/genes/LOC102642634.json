@@ -1,0 +1,40 @@
+{
+  "id": "mmu:loc102642634",
+  "symbol": "LOC102642634",
+  "name": "LOC102642634",
+  "aliases": [
+    "Gm20737",
+    "Gm20772",
+    "Gm20773",
+    "Gm20777",
+    "Gm20793",
+    "Gm20795",
+    "Gm20807",
+    "Gm20827",
+    "Gm20831",
+    "Gm20833",
+    "Gm20836",
+    "Gm20851",
+    "Gm20910",
+    "Gm20928",
+    "Gm21310",
+    "Gm21425",
+    "Gm21440",
+    "Gm21454",
+    "Gm21660",
+    "Gm21678",
+    "Gm21778",
+    "LOC665918",
+    "Ssty1"
+  ],
+  "species": "Mus musculus",
+  "external_ids": {},
+  "available_datasets": [
+    {
+      "id": "hughes-2009",
+      "slug": "hughes-2009",
+      "title": "Hughes et al. 2009 Mouse Liver 48h",
+      "profile_path": "/public_data/profiles/hughes-2009/LOC102642634.json"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "id": "mmu:bbip1",
+  "symbol": "Bbip1",
+  "name": "Bbip1",
+  "aliases": [],
+  "species": "Mus musculus",
+  "external_ids": {},
+  "available_datasets": [
+    {
+      "id": "hughes-2009",
+      "slug": "hughes-2009",
+      "title": "Hughes et al. 2009 Mouse Liver 48h",
+      "profile_path": "/public_data/profiles/hughes-2009/BBIP1.json"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "id": "mmu:hsd3b5",
+  "symbol": "Hsd3b5",
+  "name": "Hsd3b5",
+  "aliases": [],
+  "species": "Mus musculus",
+  "external_ids": {},
+  "available_datasets": [
+    {
+      "id": "hughes-2009",
+      "slug": "hughes-2009",
+      "title": "Hughes et al. 2009 Mouse Liver 48h",
+      "profile_path": "/public_data/profiles/hughes-2009/HSD3B5.json"
+    }
+  ]
+}

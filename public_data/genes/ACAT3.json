@@ -1,0 +1,18 @@
+{
+  "id": "mmu:acat3",
+  "symbol": "Acat3",
+  "name": "Acat3",
+  "aliases": [
+    "Acat2"
+  ],
+  "species": "Mus musculus",
+  "external_ids": {},
+  "available_datasets": [
+    {
+      "id": "hughes-2009",
+      "slug": "hughes-2009",
+      "title": "Hughes et al. 2009 Mouse Liver 48h",
+      "profile_path": "/public_data/profiles/hughes-2009/ACAT3.json"
+    }
+  ]
+}

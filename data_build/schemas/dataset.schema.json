@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CircaDB Dataset",
+  "type": "object",
+  "required": [
+    "id",
+    "slug",
+    "title",
+    "citation",
+    "species",
+    "tissue",
+    "platform",
+    "sampling_interval_hours",
+    "number_of_timepoints",
+    "description",
+    "source_files",
+    "downloads",
+    "featured_genes"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "citation": {
+      "type": "string"
+    },
+    "species": {
+      "type": "string"
+    },
+    "tissue": {
+      "type": "string"
+    },
+    "platform": {
+      "type": "string"
+    },
+    "sampling_interval_hours": {
+      "type": "number"
+    },
+    "number_of_timepoints": {
+      "type": "integer"
+    },
+    "description": {
+      "type": "string"
+    },
+    "source_files": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "downloads": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "label",
+          "href"
+        ],
+        "properties": {
+          "label": {
+            "type": "string"
+          },
+          "href": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "featured_genes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

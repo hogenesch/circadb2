@@ -1,0 +1,19 @@
+{
+  "id": "mmu:igkv6-14",
+  "symbol": "Igkv6-14",
+  "name": "Igkv6-14",
+  "aliases": [
+    "Igk-V28",
+    "Igkv6-23"
+  ],
+  "species": "Mus musculus",
+  "external_ids": {},
+  "available_datasets": [
+    {
+      "id": "hughes-2009",
+      "slug": "hughes-2009",
+      "title": "Hughes et al. 2009 Mouse Liver 48h",
+      "profile_path": "/public_data/profiles/hughes-2009/IGKV6-14.json"
+    }
+  ]
+}
