@@ -1,0 +1,88 @@
+---
+import MainLayout from "@layouts/MainLayout.astro";
+import { getGenesIndex } from "@lib/data";
+
+export async function getStaticPaths() {
+  const pilotSymbols = new Set(["NR1D1", "PER2", "ARNTL", "DBP"]);
+  const genes = await getGenesIndex();
+  return genes
+    .filter((gene) => pilotSymbols.has(gene.slug))
+    .map((gene) => ({
+      params: { symbol: gene.slug },
+      props: { gene },
+    }));
+}
+
+const { gene } = Astro.props;
+const symbolSlug = gene.slug;
+---
+
+<MainLayout title={`${gene.symbol} comparison | CircaDB 2.0`}>
+  <section class="space-y-8" data-gene-compare-page data-symbol-slug={symbolSlug}>
+    <article class="panel px-6 py-8">
+      <div class="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
+        <div>
+          <div class="eyebrow">Visualization comparison</div>
+          <h1 class="mt-3 text-4xl font-semibold tracking-tight text-ink">{gene.symbol}</h1>
+          <p class="mt-3 max-w-3xl text-base leading-7 text-slate-700">
+            Side-by-side display comparison for one Hughes 2009 liver profile. The observed time series stays fixed;
+            the panels only change the visual overlay method.
+          </p>
+        </div>
+        <div class="flex flex-wrap gap-3 text-sm">
+          <a
+            class="rounded-full border border-slate-200 bg-white px-4 py-2 text-slate-700 hover:border-sea/40 hover:text-sea"
+            href={`${import.meta.env.BASE_URL}gene/${symbolSlug}`}
+            data-main-gene-link
+          >
+            Open main gene page
+          </a>
+        </div>
+      </div>
+
+      <div class="mt-6 grid gap-4 text-sm text-slate-600 sm:grid-cols-3">
+        <div class="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-4">
+          <div class="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">Gene</div>
+          <p class="mt-2 font-medium text-ink">{gene.symbol}</p>
+          <p class="mt-1">{gene.name}</p>
+        </div>
+        <div class="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-4">
+          <div class="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">Dataset</div>
+          <a class="mt-2 inline-flex font-medium text-sea hover:text-ink" href="#" data-dataset-link></a>
+        </div>
+        <div class="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-4">
+          <div class="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">Selected probeset</div>
+          <p class="mt-2 font-mono text-sm text-ink" data-probe-id>—</p>
+        </div>
+      </div>
+    </article>
+
+    <section class="grid gap-6 xl:grid-cols-3">
+      {[
+        ["observed_only", "Observed only"],
+        ["lowess", "LOWESS"],
+        ["pchip", "PCHIP"],
+      ].map(([variantId, label]) => (
+        <article class="panel px-6 py-8" data-variant-panel={variantId}>
+          <div class="eyebrow">Method</div>
+          <h2 class="mt-2 text-2xl font-semibold tracking-tight text-ink">{label}</h2>
+          <p class="mt-3 min-h-[3.5rem] text-sm leading-6 text-slate-600" data-variant-note>
+            Loading comparison view.
+          </p>
+          <div class="mt-5 min-h-[22rem]" data-plot></div>
+        </article>
+      ))}
+    </section>
+  </section>
+
+  <script>
+    import { mountGeneComparePage } from "@lib/gene-compare";
+
+    const comparePage = document.querySelector<HTMLElement>("[data-gene-compare-page]");
+    const currentSymbolSlug = comparePage?.dataset.symbolSlug;
+
+    if (currentSymbolSlug) {
+      void mountGeneComparePage({ symbolSlug: currentSymbolSlug });
+    }
+  </script>
+</MainLayout>

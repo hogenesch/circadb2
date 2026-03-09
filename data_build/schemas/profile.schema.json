@@ -9,8 +9,6 @@
     "algorithms",
     "timepoints",
     "expression_values",
-    "fit_timepoints",
-    "fit_values",
     "units",
     "metadata"
   ],
@@ -88,6 +86,47 @@
       "items": {
         "type": "number"
       }
+    },
+    "display_variants": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "fit_method": {
+            "type": "string"
+          },
+          "timepoints": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            }
+          },
+          "values": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            }
+          },
+          "fit_timepoints": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            }
+          },
+          "fit_values": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            }
+          }
+        }
+      }
+    },
+    "fit_method": {
+      "type": [
+        "string",
+        "null"
+      ]
     },
     "fit_timepoints": {
       "type": "array",

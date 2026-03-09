@@ -1,10 +1,13 @@
 from __future__ import annotations
 
 import csv
-import math
 import re
 import shutil
 from pathlib import Path
+
+import numpy as np
+from scipy.interpolate import PchipInterpolator
+from statsmodels.nonparametric.smoothers_lowess import lowess
 
 from utils.algorithms import DEFAULT_ALGORITHM_ID, SUPPORTED_ALGORITHMS
 from utils.io import read_csv, write_json, write_json_compact
@@ -51,8 +54,11 @@ JTK_REQUIRED_COLUMNS = [
 PHENO_REQUIRED_COLUMNS = ["geo_accession", "title"]
 TIMEPOINT_PATTERN = re.compile(r"Circadian time (\d+)")
 INVALID_SYMBOL_TOKENS = {"---", "NA", "N/A", "NULL"}
-FIT_PERIOD_HOURS = 24.0
-FIT_STEP_HOURS = 0.25
+CYCLE_LENGTH_HOURS = 24.0
+FIT_POINT_COUNT = 160
+LOWESS_FRAC = 0.5
+LOWESS_ROBUST_ITERS = 3
+PILOT_GENES = {"NR1D1", "ARNTL", "PER2", "DBP"}
 TIME_AXIS_LABEL = "Circadian time (CT, hours)"
 
 
@@ -124,125 +130,196 @@ def empty_algorithm_payload() -> dict[str, object]:
     }
 
 
-def solve_linear_system(matrix: list[list[float]], vector: list[float]) -> list[float]:
-    augmented = [row[:] + [value] for row, value in zip(matrix, vector)]
-    size = len(augmented)
-
-    for pivot_index in range(size):
-        pivot_row = max(
-            range(pivot_index, size),
-            key=lambda row_index: abs(augmented[row_index][pivot_index]),
-        )
-        pivot_value = augmented[pivot_row][pivot_index]
-        if abs(pivot_value) < 1e-12:
-            raise ValueError("Could not solve cosinor fit because the design matrix is singular.")
-
-        augmented[pivot_index], augmented[pivot_row] = (
-            augmented[pivot_row],
-            augmented[pivot_index],
-        )
-        pivot_value = augmented[pivot_index][pivot_index]
-
-        for column_index in range(pivot_index, size + 1):
-            augmented[pivot_index][column_index] /= pivot_value
-
-        for row_index in range(size):
-            if row_index == pivot_index:
-                continue
-
-            factor = augmented[row_index][pivot_index]
-            if factor == 0:
-                continue
-
-            for column_index in range(pivot_index, size + 1):
-                augmented[row_index][column_index] -= (
-                    factor * augmented[pivot_index][column_index]
-                )
-
-    return [augmented[row_index][size] for row_index in range(size)]
-
-
 def build_fit_timepoints(
     start_time: float,
     end_time: float,
-    step_hours: float,
+    point_count: int,
 ) -> list[float]:
-    if start_time >= end_time:
+    if start_time >= end_time or point_count <= 1:
         return [round(start_time, 4)]
 
-    fit_timepoints: list[float] = []
-    step_index = 0
-    while True:
-        value = start_time + step_index * step_hours
-        if value >= end_time - 1e-9:
-            break
-        fit_timepoints.append(round(value, 4))
-        step_index += 1
-
-    fit_timepoints.append(round(end_time, 4))
-    return fit_timepoints
+    step = (end_time - start_time) / float(point_count - 1)
+    return [
+        round(start_time + point_index * step, 4)
+        for point_index in range(point_count)
+    ]
 
 
-def compute_cosinor_fit(
+def compute_lowess_fit(
     timepoints: list[float],
     expression_values: list[float],
-    period_hours: float = FIT_PERIOD_HOURS,
-    step_hours: float = FIT_STEP_HOURS,
-) -> dict[str, object]:
-    omega = (2.0 * math.pi) / period_hours
-    cosine_terms = [math.cos(omega * timepoint) for timepoint in timepoints]
-    sine_terms = [math.sin(omega * timepoint) for timepoint in timepoints]
-    cosine_sum = sum(cosine_terms)
-    sine_sum = sum(sine_terms)
-    cosine_sine_sum = sum(
-        cosine * sine for cosine, sine in zip(cosine_terms, sine_terms)
+    dense_point_count: int = FIT_POINT_COUNT,
+    cycle_length_hours: float = CYCLE_LENGTH_HOURS,
+    frac: float = LOWESS_FRAC,
+    robust_iterations: int = LOWESS_ROBUST_ITERS,
+) -> dict[str, object] | None:
+    if len(timepoints) < 3 or len(expression_values) < 3:
+        return None
+
+    observed_pairs = sorted(
+        zip(timepoints, expression_values),
+        key=lambda pair: pair[0],
     )
-
-    matrix = [
-        [float(len(timepoints)), cosine_sum, sine_sum],
-        [
-            cosine_sum,
-            sum(cosine * cosine for cosine in cosine_terms),
-            cosine_sine_sum,
-        ],
-        [
-            sine_sum,
-            cosine_sine_sum,
-            sum(sine * sine for sine in sine_terms),
-        ],
-    ]
-    vector = [
-        sum(expression_values),
-        sum(value * cosine for value, cosine in zip(expression_values, cosine_terms)),
-        sum(value * sine for value, sine in zip(expression_values, sine_terms)),
-    ]
-    baseline, cosine_beta, sine_beta = solve_linear_system(matrix, vector)
-
+    sorted_timepoints = [float(timepoint) for timepoint, _ in observed_pairs]
+    sorted_values = [float(value) for _, value in observed_pairs]
     fit_timepoints = build_fit_timepoints(
-        start_time=min(timepoints),
-        end_time=max(timepoints),
-        step_hours=step_hours,
+        start_time=sorted_timepoints[0],
+        end_time=sorted_timepoints[-1],
+        point_count=dense_point_count,
     )
-    fit_values = [
-        round(
-            baseline
-            + cosine_beta * math.cos(omega * timepoint)
-            + sine_beta * math.sin(omega * timepoint),
-            6,
-        )
-        for timepoint in fit_timepoints
+    phase_to_values: dict[float, list[float]] = {}
+    for timepoint, value in observed_pairs:
+        phase = round(timepoint % cycle_length_hours, 6)
+        phase_to_values.setdefault(phase, []).append(value)
+
+    phase_points = sorted(phase_to_values)
+    if len(phase_points) < 4:
+        return None
+
+    phase_values = [
+        sum(phase_to_values[phase]) / len(phase_to_values[phase])
+        for phase in phase_points
     ]
-    phase_radians = math.atan2(sine_beta, cosine_beta)
-    phase_hours = (phase_radians / omega) % period_hours
+    extended_phase_points = (
+        [phase - cycle_length_hours for phase in phase_points]
+        + phase_points
+        + [phase + cycle_length_hours for phase in phase_points]
+    )
+    extended_phase_values = phase_values * 3
+
+    try:
+        smoothed_pairs = lowess(
+            endog=extended_phase_values,
+            exog=extended_phase_points,
+            frac=frac,
+            it=robust_iterations,
+            return_sorted=True,
+        )
+    except Exception:
+        return None
+
+    central_phase_points: list[float] = []
+    central_phase_values: list[float] = []
+    for x_value, y_value in smoothed_pairs.tolist():
+        x_number = float(x_value)
+        if 0.0 <= x_number <= cycle_length_hours:
+            central_phase_points.append(x_number)
+            central_phase_values.append(float(y_value))
+
+    if not central_phase_points or not central_phase_values:
+        return None
+
+    interpolation_x = central_phase_points[:]
+    interpolation_y = central_phase_values[:]
+    if interpolation_x[-1] < cycle_length_hours:
+        interpolation_x.append(cycle_length_hours)
+        interpolation_y.append(central_phase_values[0])
+    elif interpolation_x[-1] == cycle_length_hours:
+        interpolation_y[-1] = central_phase_values[0]
+
+    fit_phases = [timepoint % cycle_length_hours for timepoint in fit_timepoints]
+    dense_values = np.interp(fit_phases, interpolation_x, interpolation_y)
+    return {
+        "fit_method": "lowess",
+        "fit_timepoints": fit_timepoints,
+        "fit_values": [round(float(value), 6) for value in dense_values.tolist()],
+    }
+
+
+def compute_unwrapped_lowess_fit(
+    timepoints: list[float],
+    expression_values: list[float],
+    dense_point_count: int = FIT_POINT_COUNT,
+    frac: float = LOWESS_FRAC,
+    robust_iterations: int = LOWESS_ROBUST_ITERS,
+) -> dict[str, object] | None:
+    if len(timepoints) < 3 or len(expression_values) < 3:
+        return None
+
+    observed_pairs = sorted(
+        zip(timepoints, expression_values),
+        key=lambda pair: pair[0],
+    )
+    sorted_timepoints = np.array([float(timepoint) for timepoint, _ in observed_pairs])
+    sorted_values = np.array([float(value) for _, value in observed_pairs])
+    fit_timepoints = np.linspace(
+        sorted_timepoints[0],
+        sorted_timepoints[-1],
+        dense_point_count,
+    )
+
+    try:
+        fit_values = lowess(
+            endog=sorted_values,
+            exog=sorted_timepoints,
+            xvals=fit_timepoints,
+            frac=frac,
+            it=robust_iterations,
+            return_sorted=False,
+        )
+    except Exception:
+        return None
 
     return {
-        "fit_timepoints": fit_timepoints,
-        "fit_values": fit_values,
-        "baseline": round(baseline, 6),
-        "amplitude": round(math.hypot(cosine_beta, sine_beta), 6),
-        "phase_hours": round(phase_hours, 6),
-        "period_hours": period_hours,
+        "fit_method": "lowess",
+        "fit_timepoints": [round(float(value), 4) for value in fit_timepoints.tolist()],
+        "fit_values": [round(float(value), 6) for value in fit_values.tolist()],
     }
+
+
+def compute_pchip_fit(
+    timepoints: list[float],
+    expression_values: list[float],
+    dense_point_count: int = FIT_POINT_COUNT,
+) -> dict[str, object] | None:
+    if len(timepoints) < 2 or len(expression_values) < 2:
+        return None
+
+    observed_pairs = sorted(
+        zip(timepoints, expression_values),
+        key=lambda pair: pair[0],
+    )
+    sorted_timepoints = np.array([float(timepoint) for timepoint, _ in observed_pairs])
+    sorted_values = np.array([float(value) for _, value in observed_pairs])
+    fit_timepoints = np.linspace(
+        sorted_timepoints[0],
+        sorted_timepoints[-1],
+        dense_point_count,
+    )
+
+    try:
+        interpolator = PchipInterpolator(sorted_timepoints, sorted_values)
+        fit_values = interpolator(fit_timepoints)
+    except Exception:
+        return None
+
+    return {
+        "fit_method": "pchip",
+        "fit_timepoints": [round(float(value), 4) for value in fit_timepoints.tolist()],
+        "fit_values": [round(float(value), 6) for value in fit_values.tolist()],
+    }
+    
+
+def build_display_variants(
+    timepoints: list[float],
+    expression_values: list[float],
+) -> dict[str, object]:
+    variants: dict[str, object] = {
+        "observed_only": {
+            "timepoints": [round(float(value), 4) for value in timepoints],
+            "values": [round(float(value), 6) for value in expression_values],
+        }
+    }
+
+    lowess_fit = compute_unwrapped_lowess_fit(timepoints, expression_values)
+    if lowess_fit:
+        variants["lowess"] = lowess_fit
+
+    pchip_fit = compute_pchip_fit(timepoints, expression_values)
+    if pchip_fit:
+        variants["pchip"] = pchip_fit
+
+    return variants
 
 
 def load_jtk_rows(path: Path) -> list[dict[str, object]]:
@@ -342,7 +419,7 @@ def build_dataset_record(genes: list[dict[str, object]], sample_ids: list[str], 
             "sample_ids": sample_ids,
             "time_axis_label": TIME_AXIS_LABEL,
             "time_axis_kind": "circadian_time",
-            "cycle_length_hours": FIT_PERIOD_HOURS,
+            "cycle_length_hours": CYCLE_LENGTH_HOURS,
         },
     }
 
@@ -360,7 +437,6 @@ def build() -> None:
     require_file(RAW_PHENO_PATH)
     require_file(RAW_GENE_METADATA_PATH)
 
-    overrides = load_gene_overrides(RAW_GENE_METADATA_PATH)
     jtk_rows = load_jtk_rows(RAW_JTK_PATH)
     sample_timepoints = load_sample_timepoints(RAW_PHENO_PATH)
     probe_ids = {row["probe_id"] for row in jtk_rows}
@@ -370,19 +446,20 @@ def build() -> None:
         sample_timepoints,
     )
 
-    genes: list[dict[str, object]] = []
-    dataset_gene_samples: list[dict[str, object]] = []
-    criteria_index_rows: list[dict[str, object]] = []
-    for row in jtk_rows:
+    pilot_rows = [
+        row for row in jtk_rows if str(row["symbol"]).upper() in PILOT_GENES
+    ]
+    matched_symbols = {str(row["symbol"]).upper() for row in pilot_rows}
+    missing_pilot_genes = sorted(PILOT_GENES - matched_symbols)
+    if missing_pilot_genes:
+        missing = ", ".join(missing_pilot_genes)
+        raise ValueError(f"Could not find pilot genes in Hughes 2009 input: {missing}")
+
+    PROFILES_DIR.mkdir(parents=True, exist_ok=True)
+    regenerated_paths: list[Path] = []
+    for row in pilot_rows:
         symbol = str(row["symbol"])
         slug = symbol_to_slug(symbol)
-        override = overrides.get(symbol)
-        aliases = sorted(set(row["aliases"]) | set(override.aliases if override else []))
-        external_ids: dict[str, str] = {}
-        if override and override.entrez_id:
-            external_ids["entrez_gene"] = override.entrez_id
-        if override and override.refseq_rna:
-            external_ids["refseq_rna"] = override.refseq_rna
 
         algorithms = {
             algorithm_id: empty_algorithm_payload()
@@ -399,7 +476,8 @@ def build() -> None:
             "rhythmic": row["jtk_q_value"] <= 0.05,
         }
         expression_values = probe_to_values[str(row["probe_id"])]
-        cosinor_fit = compute_cosinor_fit(timepoints, expression_values)
+        display_variants = build_display_variants(timepoints, expression_values)
+        lowess_fit = compute_lowess_fit(timepoints, expression_values)
 
         profile_record = {
             "gene_id": f"mmu:{slug.lower()}",
@@ -408,8 +486,8 @@ def build() -> None:
             "algorithms": algorithms,
             "timepoints": timepoints,
             "expression_values": expression_values,
-            "fit_timepoints": cosinor_fit["fit_timepoints"],
-            "fit_values": cosinor_fit["fit_values"],
+            "display_variants": display_variants,
+            "fit_method": lowess_fit["fit_method"] if lowess_fit else None,
             "units": "MAS5 expression intensity",
             "metadata": {
                 "species": "Mus musculus",
@@ -422,12 +500,15 @@ def build() -> None:
                 "sample_ids": sample_ids,
                 "time_axis_label": TIME_AXIS_LABEL,
                 "time_axis_kind": "circadian_time",
-                "cycle_length_hours": FIT_PERIOD_HOURS,
-                "fit_method": "24 h cosinor least-squares fit",
-                "fit_period_hours": cosinor_fit["period_hours"],
-                "fit_baseline": cosinor_fit["baseline"],
-                "fit_amplitude": cosinor_fit["amplitude"],
-                "fit_phase_hours": cosinor_fit["phase_hours"],
+                "cycle_length_hours": CYCLE_LENGTH_HOURS,
+                "fit_display_method": "LOWESS visual smoothing",
+                "fit_display_frac": LOWESS_FRAC,
+                "fit_display_robust_iterations": LOWESS_ROBUST_ITERS,
+                "display_variant_methods": [
+                    "observed_only",
+                    "lowess",
+                    "pchip",
+                ],
                 "source_files": [
                     RAW_JTK_PATH.name,
                     RAW_EXPR_PATH.name,
@@ -435,102 +516,17 @@ def build() -> None:
                 ],
             },
         }
+        if lowess_fit:
+            profile_record["fit_timepoints"] = lowess_fit["fit_timepoints"]
+            profile_record["fit_values"] = lowess_fit["fit_values"]
 
-        gene_record = {
-            "id": f"mmu:{slug.lower()}",
-            "symbol": symbol,
-            "name": override.name if override else symbol,
-            "aliases": aliases,
-            "species": "Mus musculus",
-            "external_ids": external_ids,
-            "available_datasets": [
-                {
-                    "id": DATASET_ID,
-                    "slug": DATASET_SLUG,
-                    "title": DATASET_TITLE,
-                    "profile_path": f"/public_data/profiles/{DATASET_SLUG}/{slug}.json",
-                }
-            ],
-        }
+        output_path = PROFILES_DIR / f"{slug}.json"
+        write_json(output_path, profile_record)
+        regenerated_paths.append(output_path)
 
-        genes.append({"slug": slug, "gene": gene_record, "profile": profile_record})
-        dataset_gene_samples.append(
-            {
-                "symbol": symbol,
-                "name": gene_record["name"],
-                "profile_path": f"/public_data/profiles/{DATASET_SLUG}/{slug}.json",
-                "gene_path": f"/gene/{slug}?dataset={DATASET_SLUG}",
-            }
-        )
-        criteria_index_rows.append(
-            {
-                "symbol": symbol,
-                "name": gene_record["name"],
-                "aliases": aliases,
-                "dataset_id": DATASET_ID,
-                "algorithm": DEFAULT_ALGORITHM_ID,
-                "phase": row["jtk_phase"],
-                "amplitude": row["jtk_amplitude"],
-                "period": row["jtk_period"],
-                "p_value": row["jtk_p_value"],
-                "q_value": row["jtk_q_value"],
-                "rhythmic": row["jtk_q_value"] <= 0.05,
-            }
-        )
-
-    clean_public_data_dir()
-    for raw_path in [RAW_JTK_PATH, RAW_EXPR_PATH, RAW_PHENO_PATH]:
-        shutil.copy2(raw_path, DOWNLOADS_DIR / raw_path.name)
-
-    dataset_record = build_dataset_record(genes, sample_ids, timepoints)
-    dataset_record["example_genes"] = [
-        sample for sample in dataset_gene_samples if sample["symbol"] in FEATURED_GENE_ORDER
-    ] or dataset_gene_samples[:3]
-
-    for gene_payload in genes:
-        slug = gene_payload["slug"]
-        write_json(GENES_DIR / f"{slug}.json", gene_payload["gene"])
-        write_json(PROFILES_DIR / f"{slug}.json", gene_payload["profile"])
-
-    write_json(DATASETS_DIR / f"{DATASET_SLUG}.json", dataset_record)
-    write_json_compact(
-        INDEX_DIR / "genes.json",
-        [
-            {
-                "symbol": gene_payload["gene"]["symbol"],
-                "slug": gene_payload["slug"],
-                "name": gene_payload["gene"]["name"],
-                "aliases": gene_payload["gene"]["aliases"],
-                "probe_ids": [
-                    gene_payload["profile"]["metadata"]["selected_probeset_id"]
-                ],
-                "species": gene_payload["gene"]["species"],
-                "available_datasets": [DATASET_ID],
-            }
-            for gene_payload in genes
-        ],
-    )
-    write_json_compact(
-        INDEX_DIR / "datasets.json",
-        [
-            {
-                "id": dataset_record["id"],
-                "slug": dataset_record["slug"],
-                "title": dataset_record["title"],
-                "species": dataset_record["species"],
-                "tissue": dataset_record["tissue"],
-                "platform": dataset_record["platform"],
-            }
-        ],
-    )
-    write_json_compact(
-        INDEX_DIR / "hughes-2009-jtk.json",
-        sorted(
-            criteria_index_rows,
-            key=lambda row: (row["q_value"], row["p_value"], row["symbol"]),
-        ),
-    )
-    print(f"Built {len(genes)} genes into {PUBLIC_DATA_DIR}")
+    print("Regenerated pilot gene profiles:")
+    for path in regenerated_paths:
+        print(path)
 
 
 if __name__ == "__main__":

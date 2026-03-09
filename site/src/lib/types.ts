@@ -74,11 +74,20 @@ export interface ProfileRecord {
   algorithms: Record<SupportedAlgorithmId, AlgorithmResult>;
   timepoints: number[];
   expression_values: number[];
+  display_variants?: Record<string, DisplayVariant>;
   fit_method?: string | null;
   fit_timepoints?: number[];
   fit_values?: number[];
   units: string;
   metadata: Record<string, unknown>;
+}
+
+export interface DisplayVariant {
+  fit_method?: string;
+  timepoints?: number[];
+  values?: number[];
+  fit_timepoints?: number[];
+  fit_values?: number[];
 }
 
 export interface GeneIndexEntry {
