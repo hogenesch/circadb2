@@ -59,23 +59,29 @@ function updateDatasetQueryParam(datasetSlug: string): void {
   window.history.replaceState({}, "", url);
 }
 
+function sortSeries(x: number[], y: number[]): { x: number[]; y: number[] } {
+  const pairs = x
+    .map((value, index) => ({ x: value, y: y[index] }))
+    .sort((left, right) => left.x - right.x);
+  return {
+    x: pairs.map((point) => point.x),
+    y: pairs.map((point) => point.y),
+  };
+}
+
 function getFitSeries(profile: ProfileRecord): { x: number[]; y: number[] } | null {
-  if (!profile.fit_values.length) {
+  const fitValues = profile.fit_values ?? [];
+  const fitTimepoints = profile.fit_timepoints ?? [];
+  if (!fitValues.length) {
     return null;
   }
 
-  if (profile.fit_timepoints.length === profile.fit_values.length) {
-    return {
-      x: profile.fit_timepoints,
-      y: profile.fit_values,
-    };
+  if (fitTimepoints.length === fitValues.length) {
+    return sortSeries(fitTimepoints, fitValues);
   }
 
-  if (profile.timepoints.length === profile.fit_values.length) {
-    return {
-      x: profile.timepoints,
-      y: profile.fit_values,
-    };
+  if (profile.timepoints.length === fitValues.length) {
+    return sortSeries(profile.timepoints, fitValues);
   }
 
   return null;
@@ -132,12 +138,13 @@ async function renderPlot(
   if (!plot) {
     return;
   }
+  const observedSeries = sortSeries(profile.timepoints, profile.expression_values);
   const fitSeries = getFitSeries(profile);
 
   const traces: any[] = [
     {
-      x: profile.timepoints,
-      y: profile.expression_values,
+      x: observedSeries.x,
+      y: observedSeries.y,
       type: "scatter",
       mode: "lines+markers",
       line: {
@@ -162,7 +169,7 @@ async function renderPlot(
         color: "#134e4a",
         width: 3,
       },
-      name: "24 h cosinor fit",
+      name: profile.fit_method === "lowess" ? "LOWESS smooth" : "Smoothed fit",
     });
   }
 

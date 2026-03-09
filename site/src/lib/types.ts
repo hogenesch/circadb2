@@ -74,8 +74,9 @@ export interface ProfileRecord {
   algorithms: Record<SupportedAlgorithmId, AlgorithmResult>;
   timepoints: number[];
   expression_values: number[];
-  fit_timepoints: number[];
-  fit_values: number[];
+  fit_method?: string | null;
+  fit_timepoints?: number[];
+  fit_values?: number[];
   units: string;
   metadata: Record<string, unknown>;
 }
